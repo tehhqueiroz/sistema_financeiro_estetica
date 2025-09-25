@@ -3,78 +3,355 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Esteticash - Entrar</title>
+  <title>Esteticash</title>
   <link rel="stylesheet" href="estilos.css" />
 </head>
 <body>
-  <a class="link-acessibilidade" href="#conteudo">Pular para o conteúdo</a>
-
-  <main id="conteudo" class="layout-autenticacao">
-    <section class="painel-marca">
-      <div class="marca-conteudo">
-        <img src="imagens/logo1.png" alt="Logotipo Esteticash" class="marca-logo" />
+  <header class="topo-site" role="banner" aria-label="Cabeçalho do sistema">
+  <div class="barra-superior">
+    <button class="btn-menu" aria-label="Abrir menu" aria-controls="menu-lateral" aria-expanded="false">☰</button>
+      <div class="marca-site" aria-label="Esteticash - início" tabindex="0">
+        <span class="logo" aria-hidden="true">
+          <svg width="36" height="36">
+          </svg>
+        </span>
+        <strong class="titulo-site">Esteticash</strong>
       </div>
-    </section>
+      <form class="busca-site" role="search" aria-label="Pesquisar">
+        <label for="campo-pesquisa" class="sr-apenas">Pesquisar</label>
+        <input id="campo-pesquisa" name="q" type="search" placeholder="Pesquisar" />
+        <button type="submit" class="botao-icone" aria-label="Buscar">
+          <span aria-hidden="true">🔍</span>
+        </button>
+      </form>
+      <button class="perfil-usuario botao-icone" aria-label="Perfil do usuário">
+        <span aria-hidden="true">👤</span>
+      </button>
+    </div>
+  </header>
+  <div class="container-app" id="conteudo-principal">
+    <!-- MENU LATERAL -->
+    <nav class="menu-lateral" aria-label="Navegação principal">
+      <ul class="lista-menu">
+        <li>
+          <button class="item-menu ativo" data-pagina="pagina-dashboard">Dashboard</button>
+        </li>
 
-    <section class="cartao cartao-autenticacao">
-      <div class="abas" role="tablist">
-        <button id="aba-entrar" class="aba ativa" role="tab" aria-selected="true" aria-controls="painel-entrar">ENTRAR</button>
-        <button id="aba-cadastrar" class="aba" role="tab" aria-selected="false" aria-controls="painel-cadastrar">CADASTRAR</button>
-      </div>
+        <li class="grupo-menu">
+          <button class="item-menu colapsar" aria-expanded="true" aria-controls="grupo-cadastros">
+            Cadastros
+            <span aria-hidden="true">▾</span>
+          </button>
+          <ul id="grupo-cadastros" class="submenu aberto">
+            <li><button class="subitem-menu" data-pagina="pagina-clientes">Cadastrar cliente</button></li>
+            <li><button class="subitem-menu" data-pagina="pagina-servicos">Cadastrar serviço</button></li>
+            <li><button class="subitem-menu" data-pagina="pagina-cadastrar-forma">Cadastrar forma de pagamento</button></li>
+          </ul>
+        </li>
 
-      <hr class="linha-abas" />
+        <li class="grupo-menu">
+          <button class="item-menu colapsar" aria-expanded="true" aria-controls="grupo-presenca">
+            Presença <span aria-hidden="true">▾</span>
+          </button>
+          <ul id="grupo-presenca" class="submenu aberto">
+            <li><button class="subitem-menu" disabled>Registro de presença</button></li>
+            <li><button class="subitem-menu" disabled>Sessões pendentes</button></li>
+          </ul>
+        </li>
 
-      <div id="painel-entrar" class="painel-aba" role="tabpanel" aria-labelledby="aba-entrar">
-        <form class="formulario" action="#" method="post">
-          <div class="campo">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" class="entrada" placeholder="seuemail@exemplo.com" required />
-          </div>
+        <li class="grupo-menu">
+          <button class="item-menu colapsar" aria-expanded="true" aria-controls="grupo-mov">
+            Movimentação <span aria-hidden="true">▾</span>
+          </button>
+          <ul id="grupo-mov" class="submenu aberto">
+            <li><button class="subitem-menu" disabled>Registro de entrada</button></li>
+            <li><button class="subitem-menu" disabled>Registro de saída</button></li>
+            <li><button class="subitem-menu" data-pagina="pagina-transferencias">Transferência</button></li>
+          </ul>
+        </li>
 
-          <div class="campo">
-            <label for="senha">Senha</label>
-            <div class="grupo-entrada">
-              <input id="senha" name="senha" type="password" class="entrada" placeholder="******" required />
-              <button class="botao-icone" type="button" data-js="mostrar-senha">👁</button>
+        <li class="grupo-menu">
+          <button class="item-menu colapsar" aria-expanded="true" aria-controls="grupo-extrato">
+            Extrato <span aria-hidden="true">▾</span>
+          </button>
+          <ul id="grupo-extrato" class="submenu aberto">
+            <li><button class="subitem-menu" disabled>Extrato de entradas</button></li>
+            <li><button class="subitem-menu" disabled>Extrato de saídas</button></li>
+            <li><button class="subitem-menu" disabled>Extrato das transferências</button></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <main class="area-paginas" role="main">
+      <!-- PÁGINA CLIENTES -->
+      <section id="pagina-clientes" class="pagina" aria-labelledby="titulo-clientes">
+        <header class="cabecalho-pagina">
+          <nav aria-label="Trilha de navegação" class="trilha">
+            <ol>
+              <li><a href="#" data-ir="pagina-dashboard">home</a></li>
+              <li>cadastros</li>
+              <li>clientes</li>
+            </ol>
+          </nav>
+        </header>
+        <h2 id="titulo-clientes">Clientes cadastrados</h2>
+        <div class="barra-acoes">
+          <label for="busca-clientes" class="sr-apenas">Pesquisar clientes</label>
+          <input id="busca-clientes" type="search" placeholder="Pesquisar" />
+        </div>
+
+        <ul class="lista-cartoes">
+          <li class="cartao-lista">
+            <div>
+              <strong>Stevan Queiroz</strong>
+              <div class="texto-menor">19 98803-2951</div>
+              <div class="texto-menor">Pessoa Física</div>
+            </div>
+            <div class="acoes-cartao">
+              <button class="link-menor" data-ir="pagina-cadastro-cliente">editar</button>
+              <button class="botao-icone" aria-label="Excluir"><span aria-hidden="true">🗑️</span></button>
+            </div>
+          </li>
+          <li class="cartao-lista">
+            <div>
+              <strong>Juan Caduda</strong>
+              <div class="texto-menor">19 97554-4632</div>
+              <div class="texto-menor">Pessoa Jurídica</div>
+            </div>
+            <div class="acoes-cartao">
+              <button class="link-menor" data-ir="pagina-cadastro-cliente">editar</button>
+              <button class="botao-icone" aria-label="Excluir"><span aria-hidden="true">🗑️</span></button>
+            </div>
+          </li>
+          <li class="cartao-lista">
+            <div>
+              <strong>Thiago</strong>
+              <div class="texto-menor">19 95544-7619</div>
+              <div class="texto-menor">Pessoa Física</div>
+            </div>
+            <div class="acoes-cartao">
+              <button class="link-menor" data-ir="pagina-cadastro-cliente">editar</button>
+              <button class="botao-icone" aria-label="Excluir"><span aria-hidden="true">🗑️</span></button>
+            </div>
+          </li>
+          <li class="cartao-lista">
+            <div>
+              <strong>Vini</strong>
+              <div class="texto-menor">19 93624-3296</div>
+              <div class="texto-menor">Pessoa Física</div>
+            </div>
+            <div class="acoes-cartao">
+              <button class="link-menor" data-ir="pagina-cadastro-cliente">editar</button>
+              <button class="botao-icone" aria-label="Excluir"><span aria-hidden="true">🗑️</span></button>
+            </div>
+          </li>
+          <li class="cartao-lista">
+            <div>
+              <strong>Ivan</strong>
+              <div class="texto-menor">19 97424-4342</div>
+              <div class="texto-menor">Pessoa Física</div>
+            </div>
+            <div class="acoes-cartao">
+              <button class="link-menor" data-ir="pagina-cadastro-cliente">editar</button>
+              <button class="botao-icone" aria-label="Excluir"><span aria-hidden="true">🗑️</span></button>
+            </div>
+          </li>
+          <li class="cartao-lista">
+            <div>
+              <strong>Willian</strong>
+              <div class="texto-menor">19 96787-6592</div>
+              <div class="texto-menor">Pessoa Física</div>
+            </div>
+            <div class="acoes-cartao">
+              <button class="link-menor" data-ir="pagina-cadastro-cliente">editar</button>
+              <button class="botao-icone" aria-label="Excluir"><span aria-hidden="true">🗑️</span></button>
+            </div>
+          </li>
+        </ul>
+
+        <div class="rodape-pagina-acoes">
+          <button class="botao-secundario">Cancelar</button>
+          <button class="botao-primario" data-ir="pagina-cadastro-cliente">+ novo cadastro</button>
+        </div>
+      </section>
+
+      <!-- PÁGINA CADASTRO DE CLIENTE -->
+      <section id="pagina-cadastro-cliente" class="pagina" aria-labelledby="titulo-cad-cliente">
+        <header class="cabecalho-pagina">
+          <nav aria-label="Trilha de navegação" class="trilha">
+            <ol>
+              <li><a href="#" data-ir="pagina-dashboard">home</a></li>
+              <li>cadastros</li>
+              <li>clientes</li>
+              <li>cadastro de clientes</li>
+            </ol>
+          </nav>
+        </header>
+
+        <h2 id="titulo-cad-cliente">Cadastro de clientes</h2>
+
+        <form class="formulario padrao">
+          <div class="linha-form">
+            <div class="campo largura-grande">
+              <label for="cli-nome">Nome completo</label>
+              <input id="cli-nome" type="text" placeholder="Insira seu nome" />
+            </div>
+            <div class="campo largura-media">
+              <label for="cli-cel">Celular para contato</label>
+              <div class="grupo-telefone">
+                <select aria-label="DDI">
+                  <option>+123</option>
+                  <option selected>+55</option>
+                </select>
+                <input id="cli-cel" type="tel" placeholder="12 34567-8910" />
+                <button type="button" class="botao-icone" aria-label="Validar número">✔</button>
+              </div>
+            </div>
+            <div class="campo largura-media">
+              <label for="cli-tipo">Tipo de pessoa (PF / PJ)</label>
+              <select id="cli-tipo">
+                <option>Selecione</option>
+                <option>Pessoa Física</option>
+                <option>Pessoa Jurídica</option>
+              </select>
             </div>
           </div>
-
-          <button type="submit" class="botao botao-primario botao-bloco">ENTRAR</button>
-
-          <p class="texto-ajuda">
-            <a href="#" class="link">Esqueceu a senha?</a>
-          </p>
+          <details class="bloco-avancado">
+            <summary>+ Avançado (opcional)</summary>
+            <div class="linha-form">
+              <div class="campo largura-grande">
+                <label for="cli-cpf">CPF</label>
+                <input id="cli-cpf" type="text" placeholder="473.886.327-30" />
+              </div>
+              <div class="campo largura-media">
+                <label for="cli-bairro">Bairro</label>
+                <input id="cli-bairro" type="text" placeholder="Cambuí" />
+              </div>
+              <div class="campo largura-media">
+                <label for="cli-nasc">Data de nascimento</label>
+                <input id="cli-nasc" type="text" placeholder="dd/mm/aaaa" />
+              </div>
+            </div>
+            <div class="linha-form">
+              <div class="campo largura-grande">
+                <label for="cli-rua">Rua do endereço</label>
+                <input id="cli-rua" type="text" placeholder="Rua Barreto Leme" />
+              </div>
+              <div class="campo largura-media">
+                <label for="cli-cidade">Cidade</label>
+                <input id="cli-cidade" type="text" placeholder="Campinas" />
+              </div>
+              <div class="campo largura-media">
+                <label for="cli-email">E-mail</label>
+                <input id="cli-email" type="email" placeholder="faculdadeunisal@gmail.com" />
+              </div>
+            </div>
+            <div class="linha-form">
+              <div class="campo largura-pequena">
+                <label for="cli-num">Número do endereço</label>
+                <input id="cli-num" type="text" placeholder="123" />
+              </div>
+              <div class="campo largura-media">
+                <label for="cli-uf">Estado</label>
+                <input id="cli-uf" type="text" placeholder="São Paulo" />
+              </div>
+              <div class="campo largura-media">
+                <label for="cli-rede">Rede social</label>
+                <input id="cli-rede" type="text" placeholder="@" />
+              </div>
+            </div>
+            <div class="linha-form">
+              <div class="campo largura-grande">
+                <label for="cli-comp">Complemento do endereço</label>
+                <input id="cli-comp" type="text" placeholder="Conjunto 5, Edifício B" />
+              </div>
+              <div class="campo largura-media">
+                <label for="cli-cep">CEP</label>
+                <input id="cli-cep" type="text" placeholder="11013-030" />
+              </div>
+              <div class="campo largura-media">
+                <label for="cli-obs">Observações de saúde</label>
+                <input id="cli-obs" type="text" placeholder="Exemplos: Alergias, vacinação..." />
+              </div>
+            </div>
+          </details>
+          <div class="rodape-pagina-acoes">
+            <button type="button" class="botao-secundario" data-ir="pagina-clientes">Cancelar</button>
+            <button type="submit" class="botao-primario">Cadastrar</button>
+          </div>
         </form>
-      </div>
-
-      <div id="painel-cadastrar" class="painel-aba escondido" role="tabpanel" aria-labelledby="aba-cadastrar">
-        <form class="formulario" action="#" method="post">
-          <div class="campo">
-            <label for="nome">Nome</label>
-            <input id="nome" name="nome" type="text" class="entrada" placeholder="Seu nome completo" />
-          </div>
-
-          <div class="campo">
-            <label for="email2">Email</label>
-            <input id="email2" name="email2" type="email" class="entrada" placeholder="seuemail@exemplo.com" />
-          </div>
-
-          <div class="campo">
-            <label for="senha2">Senha</label>
-            <input id="senha2" name="senha2" type="password" class="entrada" placeholder="Crie uma senha" />
-          </div>
-
-          <button type="submit" class="botao botao-primario botao-bloco">CRIAR CONTA</button>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer class="rodape">
-    <div class="linha-rodape"></div>
-    <p>© Esteticash - Todos os direitos reservados</p>
+      </section>
+      <!-- PÁGINA SERVIÇOS -->
+      <section id="pagina-servicos" class="pagina" aria-labelledby="titulo-servicos">
+        <header class="cabecalho-pagina">
+          <nav aria-label="Trilha de navegação" class="trilha">
+            <ol>
+              <li><a href="#" data-ir="pagina-dashboard">home</a></li>
+              <li>cadastros</li>
+              <li>serviços</li>
+            </ol>
+          </nav>
+        </header>
+        <h2 id="titulo-servicos">Tipos de serviços cadastrados</h2>
+        <div class="barra-acoes">
+          <label for="busca-servicos" class="sr-apenas">Pesquisar serviços</label>
+          <input id="busca-servicos" type="search" placeholder="Pesquisar" />
+        </div>
+        <ul class="lista-cartoes">
+          <li class="cartao-lista">
+            <div><strong>Massagem Terapêutica</strong><div class="texto-menor">R$150,00</div></div>
+            <div class="acoes-cartao">
+              <button class="link-menor" data-ir="pagina-cadastrar-servico">editar</button>
+              <button class="botao-icone" aria-label="Excluir">🗑️</button>
+            </div>
+          </li>
+          <li class="cartao-lista">
+            <div><strong>Massagem modeladora</strong><div class="texto-menor">R$160,00</div></div>
+            <div class="acoes-cartao">
+              <button class="link-menor" data-ir="pagina-cadastrar-servico">editar</button>
+              <button class="botao-icone" aria-label="Excluir">🗑️</button>
+            </div>
+          </li>
+          <li class="cartao-lista">
+            <div><strong>Massagem X</strong><div class="texto-menor">R$140,00</div></div>
+            <div class="acoes-cartao">
+              <button class="link-menor" data-ir="pagina-cadastrar-servico">editar</button>
+              <button class="botao-icone" aria-label="Excluir">🗑️</button>
+            </div>
+          </li>
+          <li class="cartao-lista">
+            <div><strong>Shiatsu</strong><div class="texto-menor">R$160,00</div></div>
+            <div class="acoes-cartao">
+              <button class="link-menor" data-ir="pagina-cadastrar-servico">editar</button>
+              <button class="botao-icone" aria-label="Excluir">🗑️</button>
+            </div>
+          </li>
+          <li class="cartao-lista">
+            <div><strong>Drenagem linfática</strong><div class="texto-menor">R$160,00</div></div>
+            <div class="acoes-cartao">
+              <button class="link-menor" data-ir="pagina-cadastrar-servico">editar</button>
+              <button class="botao-icone" aria-label="Excluir">🗑️</button>
+            </div>
+          </li>
+          <li class="cartao-lista">
+            <div><strong>Massagem Y</strong><div class="texto-menor">R$120,00</div></div>
+            <div class="acoes-cartao">
+              <button class="link-menor" data-ir="pagina-cadastrar-servico">editar</button>
+              <button class="botao-icone" aria-label="Excluir">🗑️</button>
+            </div>
+          </li>
+        </ul>
+        <div class="rodape-pagina-acoes">
+          <button class="botao-secundario">Cancelar</button>
+          <button class="botao-primario" data-ir="pagina-cadastrar-servico">+ novo cadastro</button>
+        </div>
+      </section>
+    </main>
+  <footer class="rodape-site" role="contentinfo">
+    <div class="conteudo-rodape">
+      <span>© Esteticash - Todos os direitos reservados</span>
+    </div>
   </footer>
-
-  <script src="script.js" defer></script>
 </body>
 </html>
