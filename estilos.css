@@ -1,170 +1,330 @@
-:root {
-  --fundo-principal: #1f3a56;
-  --fundo-cartao: #88c1b3;
-  --texto: #0e1b2a;
-  --texto-invertido: #ffffff;
-  --borda-campo: #d6dee6;
-  --borda-foco: #8aa9c4;
-  --botao: #234566;
-  --botao-hover: #1c3a56;
+/* Variáveis simples */
+:root{
+  --azul-escuro:#213a53;
+  --azul-escuro-2:#1f3750;
+  --verde-claro:#8dc1b2;
+  --verde-card:#93c7b9;
+  --azul-botao:#1e3650;
+  --texto:#16222e;
+  --borda:#d8e3ea;
+  --fundo:#f6f8fa;
+  --branco:#fff;
+  --sombra:0 6px 20px rgba(0,0,0,.08);
+  --raio:14px;
 }
 
-body {
-  margin: 0;
-  font-family: system-ui, sans-serif;
-  background: var(--fundo-principal);
-  color: var(--texto-invertido);
+/* Reset acessível básico */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  color:var(--texto);
+  font: 16px/1.4 "Inter",system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  background:var(--azul-escuro);
+}
+img,svg{
+  max-width:100%;
+  height:auto
+}
+button{
+  cursor:pointer
+}
+a{
+  color:inherit
 }
 
-.link-acessibilidade {
-  position: absolute;
-  left: -9999px;
+/* Link pular conteúdo */
+.pular-conteudo{
+  position:absolute;
+  left:-9999px;
+  top:-9999px;
+  background:var(--branco);
+  color:var(--azul-botao);
+  padding:.5rem .75rem;
+  border-radius:8px;
+  box-shadow:var(--sombra);
+}
+.pular-conteudo:focus{left:1rem;top:1rem;z-index:1000}
+
+/* Topo */
+.topo-site{background:var(--azul-escuro);position:sticky;top:0;z-index:50}
+.barra-superior{
+  display:flex;align-items:center;gap:1rem;
+  padding:.75rem 1.25rem;border-bottom:1px solid rgba(255,255,255,.12);
+}
+.marca-site{display:flex;align-items:center;gap:.5rem;color:#fff}
+.titulo-site{font-size:1.3rem}
+.busca-site{
+  margin-left:auto;display:flex;align-items:center;background:#fff;border-radius:999px;
+  padding:.25rem .5rem;min-width:260px
+}
+.busca-site input{border:0;outline:0;width:100%;padding:.4rem .5rem;border-radius:999px}
+.botao-icone{
+  border:0;background:transparent;padding:.25rem .5rem;color:#fff;font-size:1.1rem
+}
+.perfil-usuario{margin-left:.5rem}
+
+/* Layout principal */
+.container-app{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 58px)}
+.menu-lateral{
+  background:var(--azul-escuro-2);color:#dbe7f1;padding:1rem .75rem
+}
+.lista-menu{list-style:none;margin:0;padding:0}
+.item-menu{
+  width:100%;text-align:left;padding:.65rem .75rem;border-radius:10px;
+  border:1px solid transparent;background:transparent;color:#dbe7f1;font-weight:600
+}
+.item-menu.ativo,.item-menu:hover{background:rgba(255,255,255,.08)}
+.grupo-menu{margin-top:.25rem}
+.colapsar{display:flex;align-items:center;justify-content:space-between}
+.submenu{list-style:none;margin:.25rem 0 .5rem;padding:0 .25rem;display:none}
+.submenu.aberto{display:block}
+.subitem-menu{
+  width:100%;text-align:left;padding:.5rem .75rem;margin:.25rem 0;border-radius:8px;border:0;
+  background:transparent;color:#cfe2f2
+}
+.subitem-menu:hover{background:rgba(255,255,255,.06)}
+
+/* Páginas */
+.area-paginas{background:var(--fundo);padding:0;min-height:100%}
+.pagina{display:none;padding:1.25rem 1.25rem 5rem}
+.pagina.visivel{display:block}
+.cabecalho-pagina{margin-bottom:.5rem}
+.trilha ol{display:flex;gap:.5rem;list-style:none;padding:0;margin:0;color:#6b7e90;font-size:.95rem}
+.trilha a{text-decoration:underline}
+
+/* Login */
+.grade-login{
+  display:grid;grid-template-columns:1fr 420px;gap:2rem;align-items:center;min-height:calc(100vh - 58px);
+  padding:2rem 2rem 3rem;background:var(--azul-escuro)
+}
+.logo-grande{color:#fff;font-size:4.2rem;font-weight:700;letter-spacing:.5px}
+.cartao-login{
+  background:var(--verde-card);border-radius:24px;box-shadow:var(--sombra);padding:1.25rem 1.25rem 1rem;color:#0a2a36
+}
+.abas-login{display:flex;gap:1rem;justify-content:space-between;border-bottom:2px solid rgba(255,255,255,.45);margin-bottom:1rem}
+.aba-login{
+  background:transparent;border:0;font-weight:700;padding:.75rem 1rem;border-radius:12px 12px 0 0;color:#17374a
+}
+.aba-login.ativa{color:#1a2c4a;position:relative}
+.bloco-formulario{display:none}
+.bloco-formulario.visivel{display:block}
+.campo{display:grid;gap:.35rem;margin-bottom:.8rem}
+.campo input, .campo select{padding:.7rem .8rem;border-radius:10px;border:1px solid rgba(0,0,0,.15);background:#fff}
+.botao-primario{
+  background:var(--azul-botao);color:#fff;border:0;padding:.8rem 1rem;border-radius:10px;font-weight:700;box-shadow:var(--sombra)
+}
+.link-menor{background:none;border:0;color:#133b62;text-decoration:underline;padding:.25rem .25rem}
+.texto-menor{color:#5d7082;font-size:.9rem}
+
+/* Dashboard */
+.painel-dashboard{display:grid;grid-template-columns:1fr 380px;gap:2rem}
+.menu-rapido .titulo-caixa{position:absolute;left:-9999px}
+.grade-cartoes{display:grid;grid-template-columns:repeat(2, minmax(180px,1fr));gap:1.25rem}
+.cartao-atalho{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:var(--verde-card);border:0;border-radius:16px;padding:2.5rem 1rem;box-shadow:var(--sombra);
+  font-weight:800;color:#17374a
+}
+.icone-atalho{font-size:1.8rem;margin-bottom:.5rem}
+.painel-resumo{display:flex;flex-direction:column;gap:1rem}
+.filtros-resumo input{width:100%;padding:.6rem .75rem;border-radius:10px;border:1px solid var(--borda);background:#fff}
+.grupo-botoes{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
+.botao-filtro{padding:.5rem .75rem;border-radius:10px;border:1px solid var(--borda);background:#fff;color:#1a2f45}
+.botao-filtro.ativo{background:var(--azul-botao);color:#fff;border-color:transparent}
+.grade-kpis{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.kpi{background:#cfe5de;border-radius:12px;padding:.8rem .9rem;box-shadow:var(--sombra);display:flex;flex-direction:column;gap:.25rem}
+.kpi span{font-size:.9rem;color:#325561}
+.kpi strong{font-size:1.15rem}
+
+/* Listagens genéricas */
+.barra-acoes{margin:1rem 0}
+.barra-acoes input{padding:.6rem .8rem;border-radius:12px;border:1px solid var(--borda);background:#fff;min-width:300px}
+.lista-cartoes{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3, 1fr);gap:1rem}
+.cartao-lista{background:#fff;border:1px solid var(--borda);border-radius:12px;padding:.9rem .95rem;display:flex;align-items:center;justify-content:space-between;gap:.75rem;box-shadow:var(--sombra)}
+.acoes-cartao{display:flex;align-items:center;gap:.75rem}
+
+/* Formulários padrão */
+.formulario.padrao{background:#fff;border-radius:14px;border:1px solid var(--borda);padding:1rem;box-shadow:var(--sombra)}
+.linha-form{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem}
+.largura-grande{grid-column:span 1}
+.largura-media{grid-column:span 1}
+.largura-pequena{grid-column:span 1}
+.grupo-telefone{display:grid;grid-template-columns:110px 1fr 44px;gap:.5rem;align-items:center}
+.grupo-simples{display:grid;grid-template-columns:auto 1fr auto;align-items:center;border:1px solid var(--borda);border-radius:10px;overflow:hidden;background:#fff}
+.grupo-simples input{border:0;padding:.6rem .7rem}
+.prefixo,.sufixo{padding:.45rem .6rem;color:#5d7082}
+.bloco-avancado{margin-top:.5rem}
+.bloco-avancado summary{cursor:pointer}
+.bloco-descontos{border:1px dashed var(--borda);border-radius:12px;padding:1rem;margin-top:1rem;background:#f9fbfb}
+.linha-desconto{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+
+.rodape-pagina-acoes{display:flex;gap:.75rem;justify-content:flex-end;margin-top:1rem}
+.botao-secundario{background:#e7eef4;color:#1c334b;border:1px solid var(--borda);padding:.8rem 1rem;border-radius:10px}
+
+/* Rodapé */
+.rodape-site{position:sticky;bottom:0;background:var(--verde-card);border-top:1px solid rgba(0,0,0,.08)}
+.conteudo-rodape{max-width:1200px;margin:0 auto;padding:.6rem 1rem;color:#123243}
+
+/* Acessibilidade extra */
+.sr-apenas{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+
+/* Responsivo */
+@media (max-width: 1100px){
+  .container-app{grid-template-columns:1fr}
+  .menu-lateral{position:sticky;top:58px;z-index:20}
+  .painel-dashboard{grid-template-columns:1fr}
+  .lista-cartoes{grid-template-columns:1fr 1fr}
+  .grade-cartoes{grid-template-columns:1fr 1fr}
+  .grade-login{grid-template-columns:1fr}
+  .logo-grande{text-align:center}
+}
+@media (max-width: 680px){
+  .lista-cartoes{grid-template-columns:1fr}
+  .linha-form{grid-template-columns:1fr}
+  .grupo-telefone{grid-template-columns:100px 1fr 44px}
 }
 
-.link-acessibilidade:focus {
-  left: 16px;
-  top: 16px;
-  background: #000;
-  color: #fff;
-  padding: 8px 16px;
-}
+/* Pílulas de rádio (sim/não) */
+.radios-pills .grupo-pills{display:flex;gap:.5rem;align-items:center}
+.radios-pills .pill{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--borda);border-radius:999px;padding:.35rem .7rem;background:#fff}
+.radios-pills input{appearance:none;width:.9rem;height:.9rem;border:2px solid #556; border-radius:50%; display:inline-block; position:relative; background:#fff}
+.radios-pills input:checked{background:#0b1f36;border-color:#0b1f36}
+.radios-pills .pill span{font-weight:600;color:#17374a}
 
-.layout-autenticacao {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;
-  min-height: 100vh;
-  align-items: center;
-  padding: 32px;
-}
+/* Oculto utilitário */
+.oculto{display:none}
 
-@media (min-width: 900px) {
-  .layout-autenticacao {
-    grid-template-columns: 1fr 1fr;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-}
+/* Tabelas */
+.tabela-responsiva{overflow:auto;background:#fff;border:1px solid var(--borda);border-radius:12px}
+.tabela{width:100%;border-collapse:separate;border-spacing:0}
+.tabela th, .tabela td{padding:.8rem .9rem;border-bottom:1px solid var(--borda);text-align:left}
+.tabela thead th{background:#edf4f1;color:#274b56;font-size:.9rem}
+.tabela tfoot td{background:#f5faf8}
+.linha-zebra{background:#f8fbfc}
+.alinha-direita{text-align:right}
 
-.painel-marca {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-.marca-conteudo {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
-.marca-logo {
-  width: 100px;
-}
-
-.cartao {
-  background: var(--fundo-cartao);
-  color: var(--texto);
-  border-radius: 16px;
-  padding: 32px;
-  box-shadow: 0 10px 20px rgba(0,0,0,.2);
-}
-
-.abas {
-  display: flex;
-  justify-content: space-between;
-}
-
-.aba {
-  background: transparent;
-  border: none;
-  font-weight: bold;
-  padding: 8px 16px;
-  cursor: pointer;
-}
-
-.aba.ativa {
-  background: rgba(255,255,255,.3);
-}
-
-.linha-abas {
-  border: 0;
-  border-top: 2px solid rgba(0,0,0,.2);
-  margin: 16px 0;
-}
-
-.painel-aba.escondido {
+/* Esconder topo e menu no login */
+body.modo-login .topo-site,
+body.modo-login .menu-lateral {
   display: none;
 }
 
-.formulario {
-  display: grid;
-  gap: 16px;
-}
-
-.campo {
-  display: grid;
-  gap: 8px;
-}
-
-.entrada {
+/* Expande a área de conteúdo quando o menu some */
+body.modo-login .container-app {
+  margin: 0;           /* se você usa margin-left por causa do menu */
   width: 100%;
-  padding: 12px 16px;
-  border: 2px solid var(--borda-campo);
-  border-radius: 10px;
 }
 
-.entrada:focus {
-  border-color: var(--borda-foco);
+/* Se seu layout usa grid/columns, forçamos 1 coluna no login */
+body.modo-login .area-paginas {
+  max-width: 1200px;   /* mantém o conteúdo centralizado */
+  margin: 0 auto;
 }
 
-.grupo-entrada {
-  position: relative;
+/* Logo grande na tela de login */
+.logo-grande-imagem {
+  width: min(70vw, 500px);  /* ocupa até 500px, mas é responsivo */
+  height: auto;
+  display: block;
+  margin-left: 5vw;         /* dá um respiro à esquerda */
 }
 
-.botao-icone {
-  position: absolute;
-  right: 8px;
-  top: 50%;
-  transform: translateY(-50%);
+/* Layout lado a lado: logo e cartão */
+#pagina-login .grade-login {
+  display: grid;
+  grid-template-columns: 1fr 420px; /* coluna logo + coluna cartão */
+  align-items: center;
+  gap: 48px;
+  min-height: 100vh;
+  padding: 32px;
+  background: #1f3851; /* fundo azul */
+}
+
+/* Responsivo para celular: empilha */
+@media (max-width: 900px) {
+  #pagina-login .grade-login {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 16px;
+  }
+  .logo-grande-imagem {
+    margin: 0 auto;
+    width: min(80vw, 400px);
+  }
+}
+
+
+/* No login, a área principal vira 1 coluna (sem coluna do menu) */
+body.modo-login .container-app {
+  grid-template-columns: 1fr !important; /* elimina a coluna de 260px */
+}
+
+/* Escondendo o topo e menu no login */
+body.modo-login .topo-site,
+body.modo-login .menu-lateral {
+  display: none;
+}
+
+/* ajuste de cor colocando transparencia” */
+body.modo-login .area-paginas {
   background: transparent;
-  border: none;
-  cursor: pointer;
+  padding: 0;
 }
 
-.botao {
-  border: none;
-  border-radius: 10px;
-  padding: 14px 16px;
-  font-weight: bold;
-  cursor: pointer;
+
+/* Botão hamburguer (mostra só no mobile) */
+.btn-menu{
+  display:none;
+  border:0;
+  background:transparent;
+  color:#fff;
+  font-size:22px;
+  padding:.25rem .5rem;
 }
 
-.botao-primario {
-  background: var(--botao);
-  color: var(--texto-invertido);
+/* Quando o menu estiver aberto, bloqueia rolagem do body */
+body.menu-aberto{ overflow:hidden; }
+
+/* Máscara escura atrás do drawer */
+.mask-menu{
+  position:fixed;
+  top:58px;           /* altura do header */
+  left:0; right:0; bottom:0;
+  background:rgba(0,0,0,.35);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .2s ease;
+  z-index:90;
+}
+body.menu-aberto .mask-menu{
+  opacity:1;
+  pointer-events:auto;
 }
 
-.botao-primario:hover {
-  background: var(--botao-hover);
+/* MOBILE: transforma o menu em drawer */
+@media (max-width:1100px){
+  .btn-menu{ display:inline-block; }
+
+  /* a área vira 1 coluna (menu sai do fluxo) */
+  .container-app{ grid-template-columns: 1fr; }
+
+  .menu-lateral{
+    position:fixed;
+    top:58px;               /* logo abaixo do header */
+    left:-280px;            /* escondido */
+    width:280px;
+    height:calc(100vh - 58px);
+    overflow:auto;
+    transition:left .25s ease;
+    z-index:100;            /* acima do conteúdo, abaixo do header */
+    box-shadow: 0 8px 24px rgba(0,0,0,.2);
+  }
+  body.menu-aberto .menu-lateral{ left:0; }
+
+  /* conteúdo abaixo do header */
+  .area-paginas{ padding-top:1rem; }
 }
 
-.botao-bloco {
-  width: 100%;
-}
 
-.texto-ajuda {
-  text-align: center;
-}
-
-.rodape {
-  text-align: center;
-  padding: 24px;
-}
-
-.linha-rodape {
-  width: 90%;
-  height: 2px;
-  background: rgba(255,255,255,.5);
-  margin: 0 auto 16px;
-}
