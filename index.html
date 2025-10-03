@@ -3,78 +3,1232 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Esteticash - Entrar</title>
+  <title>Esteticash</title>
   <link rel="stylesheet" href="estilos.css" />
+  <script defer src="app.js"></script>
 </head>
 <body>
-  <a class="link-acessibilidade" href="#conteudo">Pular para o conteúdo</a>
+  <a class="pular-conteudo" href="#conteudo-principal">Pular para o conteúdo</a>
 
-  <main id="conteudo" class="layout-autenticacao">
-    <section class="painel-marca">
-      <div class="marca-conteudo">
-        <img src="imagens/logo1.png" alt="Logotipo Esteticash" class="marca-logo" />
+  <!-- CABEÇALHO GLOBAL -->
+  <header class="topo-site" role="banner" aria-label="Cabeçalho do sistema">
+  <div class="barra-superior">
+    <button class="btn-menu" aria-label="Abrir menu" aria-controls="menu-lateral" aria-expanded="false">☰</button>
+      <div class="marca-site" aria-label="Esteticash - início" tabindex="0">
+        <span class="logo" aria-hidden="true">
+          <!-- ícone simples -->
+          <svg width="36" height="36" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+            <circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.15"/>
+            <path d="M9.5 8.5c0-1.7 1.3-3 3-3s3 1.3 3 3-1.3 3-3 3v2.5a3.5 3.5 0 1 1-3-5.5z" fill="currentColor"/>
+          </svg>
+        </span>
+        <strong class="titulo-site">Esteticash</strong>
       </div>
-    </section>
 
-    <section class="cartao cartao-autenticacao">
-      <div class="abas" role="tablist">
-        <button id="aba-entrar" class="aba ativa" role="tab" aria-selected="true" aria-controls="painel-entrar">ENTRAR</button>
-        <button id="aba-cadastrar" class="aba" role="tab" aria-selected="false" aria-controls="painel-cadastrar">CADASTRAR</button>
-      </div>
+      <form class="busca-site" role="search" aria-label="Pesquisar">
+        <label for="campo-pesquisa" class="sr-apenas">Pesquisar</label>
+        <input id="campo-pesquisa" name="q" type="search" placeholder="Pesquisar" />
+        <button type="submit" class="botao-icone" aria-label="Buscar">
+          <span aria-hidden="true">🔍</span>
+        </button>
+      </form>
 
-      <hr class="linha-abas" />
+      <button class="perfil-usuario botao-icone" aria-label="Perfil do usuário">
+        <span aria-hidden="true">👤</span>
+      </button>
+    </div>
+  </header>
 
-      <div id="painel-entrar" class="painel-aba" role="tabpanel" aria-labelledby="aba-entrar">
-        <form class="formulario" action="#" method="post">
-          <div class="campo">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" class="entrada" placeholder="seuemail@exemplo.com" required />
+  <!-- máscara do drawer -->
+<div class="mask-menu" hidden></div>
+
+  <div class="container-app" id="conteudo-principal">
+    <!-- MENU LATERAL -->
+    <nav class="menu-lateral" aria-label="Navegação principal">
+      <ul class="lista-menu">
+        <li>
+          <button class="item-menu ativo" data-pagina="pagina-dashboard">Dashboard</button>
+        </li>
+
+        <li class="grupo-menu">
+          <button class="item-menu colapsar" aria-expanded="true" aria-controls="grupo-cadastros">
+            Cadastros
+            <span aria-hidden="true">▾</span>
+          </button>
+          <ul id="grupo-cadastros" class="submenu aberto">
+            <li><button class="subitem-menu" data-pagina="pagina-clientes">Cadastrar cliente</button></li>
+            <li><button class="subitem-menu" data-pagina="pagina-servicos">Cadastrar serviço</button></li>
+            <li><button class="subitem-menu" data-pagina="pagina-cadastrar-forma">Cadastrar forma de pagamento</button></li>
+          </ul>
+        </li>
+
+        <li class="grupo-menu">
+          <button class="item-menu colapsar" aria-expanded="true" aria-controls="grupo-presenca">
+            Presença <span aria-hidden="true">▾</span>
+          </button>
+          <ul id="grupo-presenca" class="submenu aberto">
+            <li><button class="subitem-menu" disabled>Registro de presença</button></li>
+            <li><button class="subitem-menu" disabled>Sessões pendentes</button></li>
+          </ul>
+        </li>
+
+        <li class="grupo-menu">
+          <button class="item-menu colapsar" aria-expanded="true" aria-controls="grupo-mov">
+            Movimentação <span aria-hidden="true">▾</span>
+          </button>
+          <ul id="grupo-mov" class="submenu aberto">
+            <li><button class="subitem-menu" disabled>Registro de entrada</button></li>
+            <li><button class="subitem-menu" disabled>Registro de saída</button></li>
+            <li><button class="subitem-menu" data-pagina="pagina-transferencias">Transferência</button></li>
+          </ul>
+        </li>
+
+        <li class="grupo-menu">
+          <button class="item-menu colapsar" aria-expanded="true" aria-controls="grupo-extrato">
+            Extrato <span aria-hidden="true">▾</span>
+          </button>
+          <ul id="grupo-extrato" class="submenu aberto">
+            <li><button class="subitem-menu" disabled>Extrato de entradas</button></li>
+            <li><button class="subitem-menu" disabled>Extrato de saídas</button></li>
+            <li><button class="subitem-menu" disabled>Extrato das transferências</button></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <main class="area-paginas" role="main">
+      <!-- PÁGINA: LOGIN / CADASTRAR -->
+      <section id="pagina-login" class="pagina visivel" aria-labelledby="titulo-login">
+        <div class="grade-login">
+          <div class="lado-logo">
+              <img src="img/logo-esteticash.png" alt="Esteticash" class="logo-grande-imagem">
+            </div>
+
+          <div class="cartao-login" role="region" aria-label="Acesso ao sistema">
+            <div class="abas-login" role="tablist" aria-label="Selecionar ação">
+              <button role="tab" aria-selected="true" class="aba-login ativa" id="aba-entrar" aria-controls="form-entrar">Entrar</button>
+              <button role="tab" aria-selected="false" class="aba-login" id="aba-cadastrar" aria-controls="form-cadastrar">Cadastrar</button>
+            </div>
+
+            <form id="form-entrar" class="bloco-formulario visivel" role="form" aria-labelledby="aba-entrar">
+              <div class="campo">
+                <label for="login-email">Email</label>
+                <input id="login-email" type="email" autocomplete="username" placeholder="seuemail@exemplo.com" required />
+              </div>
+              <div class="campo">
+                <label for="login-senha">Senha</label>
+                <input id="login-senha" type="password" autocomplete="current-password" placeholder="••••••" required />
+              </div>
+              <button type="submit" class="botao-primario">Entrar</button>
+              <a href="#" class="link-menor">Esqueceu a senha?</a>
+            </form>
+
+            <form id="form-cadastrar" class="bloco-formulario" role="form" aria-labelledby="aba-cadastrar">
+              <div class="campo">
+                <label for="cad-nome">Nome</label>
+                <input id="cad-nome" type="text" placeholder="Nome" required />
+              </div>
+              <div class="campo">
+                <label for="cad-email">Email</label>
+                <input id="cad-email" type="email" placeholder="seuemail@exemplo.com" required />
+              </div>
+              <div class="campo">
+                <label for="cad-senha">Senha</label>
+                <input id="cad-senha" type="password" placeholder="••••••" required />
+              </div>
+              <div class="campo">
+                <label for="cad-senha2">Confirmar senha</label>
+                <input id="cad-senha2" type="password" placeholder="••••••" required />
+              </div>
+              <button type="button" class="botao-primario" data-ir="pagina-dashboard">Cadastrar</button>
+            </form>
           </div>
+        </div>
+      </section>
 
-          <div class="campo">
-            <label for="senha">Senha</label>
-            <div class="grupo-entrada">
-              <input id="senha" name="senha" type="password" class="entrada" placeholder="******" required />
-              <button class="botao-icone" type="button" data-js="mostrar-senha">👁</button>
+      <!-- PÁGINA: DASHBOARD -->
+      <section id="pagina-dashboard" class="pagina" aria-labelledby="titulo-dashboard">
+        <h2 id="titulo-dashboard" class="sr-apenas">Dashboard</h2>
+        <div class="painel-dashboard">
+          <section class="menu-rapido" aria-label="Menu rápido">
+            <h3 class="titulo-caixa">Menu rápido</h3>
+
+            <div class="grade-cartoes">
+              <button class="cartao-atalho" data-ir="pagina-registro-presenca" aria-label="Ir para Registro de presença">
+                <span class="icone-atalho" aria-hidden="true">✔️</span>
+                <strong>Presença</strong>
+              </button>
+
+              <button class="cartao-atalho" data-ir="pagina-registro-entrada" aria-label="Ir para Registro de entradas">
+                <span class="icone-atalho" aria-hidden="true">💰</span>
+                <strong>Entradas</strong>
+              </button>
+
+              <button class="cartao-atalho" data-ir="pagina-registro-saida" aria-label="Ir para Registro de saídas">
+                <span class="icone-atalho" aria-hidden="true">🛒</span>
+                <strong>Saídas</strong>
+              </button>
+
+              <button class="cartao-atalho" data-ir="pagina-transferencias" aria-label="Ir para Registro de transferências">
+                <span class="icone-atalho" aria-hidden="true">🏦</span>
+                <strong>Transferências</strong>
+              </button>
+
+              <button class="cartao-atalho" data-ir="pagina-sessoes-pendentes" aria-label="Ir para Sessões pendentes">
+                <span class="icone-atalho" aria-hidden="true">⏳</span>
+                <strong>Sessões pendentes</strong>
+              </button>
+
+              <button class="cartao-atalho" data-ir="pagina-extrato-geral" aria-label="Ir para Extrato geral">
+                <span class="icone-atalho" aria-hidden="true">📄</span>
+                <strong>Extrato</strong>
+              </button>
+            </div>
+          </section>
+           
+
+          <aside class="painel-resumo" aria-label="Resumo financeiro">
+            <form class="filtros-resumo" aria-label="Período">
+              <label for="campo-periodo" class="sr-apenas">Período</label>
+              <input id="campo-periodo" type="text" inputmode="numeric" placeholder="dd/mm/aaaa - dd/mm/aaaa" aria-describedby="ajuda-periodo"/>
+              <span id="ajuda-periodo" class="sr-apenas">Use o formato dia, mês e ano</span>
+              <div class="grupo-botoes">
+                <button type="button" class="botao-filtro" data-range="mes-anterior">Mês anterior</button>
+                <button type="button" class="botao-filtro ativo" data-range="mes-atual">Mês atual</button>
+                <button type="button" class="botao-filtro" data-range="7d">7 dias</button>
+                <button type="button" class="botao-filtro" data-range="30d">30 dias</button>
+              </div>
+            </form>
+
+            <div class="grade-kpis" role="list">
+              <div role="listitem" class="kpi"><span>Total de entradas</span><strong>R$17.250,00</strong></div>
+              <div role="listitem" class="kpi"><span>NFe emitida</span><strong>R$7.250,00</strong></div>
+              <div role="listitem" class="kpi"><span>NFe pendente</span><strong>R$10.000,00</strong></div>
+              <div role="listitem" class="kpi"><span>Total de saídas</span><strong>R$7.250,00</strong></div>
+              <div role="listitem" class="kpi"><span>Total PF</span><strong>R$7.250,00</strong></div>
+              <div role="listitem" class="kpi"><span>Total PJ</span><strong>R$10.000,00</strong></div>
+              <div role="listitem" class="kpi"><span>Lucro total</span><strong>R$10.000,00</strong></div>
+              <div role="listitem" class="kpi"><span>Taxas cartão</span><strong>R$700,00</strong></div>
+              <div role="listitem" class="kpi"><span>Retiradas</span><strong>R$8.000,00</strong></div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- PÁGINA: CLIENTES (LISTA) -->
+      <section id="pagina-clientes" class="pagina" aria-labelledby="titulo-clientes">
+        <header class="cabecalho-pagina">
+          <nav aria-label="Trilha de navegação" class="trilha">
+            <ol>
+              <li><a href="#" data-ir="pagina-dashboard">home</a></li>
+              <li>cadastros</li>
+              <li>clientes</li>
+            </ol>
+          </nav>
+        </header>
+
+
+        <h2 id="titulo-clientes">Clientes cadastrados</h2>
+
+        <div class="barra-acoes">
+          <label for="busca-clientes" class="sr-apenas">Pesquisar clientes</label>
+          <input id="busca-clientes" type="search" placeholder="Pesquisar" />
+        </div>
+
+        <ul class="lista-cartoes">
+          <li class="cartao-lista">
+            <div>
+              <strong>Stevan Queiroz</strong>
+              <div class="texto-menor">19 98803-2951</div>
+              <div class="texto-menor">Pessoa Física</div>
+            </div>
+            <div class="acoes-cartao">
+              <button class="link-menor" data-ir="pagina-cadastro-cliente">editar</button>
+              <button class="botao-icone" aria-label="Excluir"><span aria-hidden="true">🗑️</span></button>
+            </div>
+          </li>
+          <li class="cartao-lista">
+            <div>
+              <strong>Juan Caduda</strong>
+              <div class="texto-menor">19 97554-4632</div>
+              <div class="texto-menor">Pessoa Jurídica</div>
+            </div>
+            <div class="acoes-cartao">
+              <button class="link-menor" data-ir="pagina-cadastro-cliente">editar</button>
+              <button class="botao-icone" aria-label="Excluir"><span aria-hidden="true">🗑️</span></button>
+            </div>
+          </li>
+          <li class="cartao-lista">
+            <div>
+              <strong>Thiago</strong>
+              <div class="texto-menor">19 95544-7619</div>
+              <div class="texto-menor">Pessoa Física</div>
+            </div>
+            <div class="acoes-cartao">
+              <button class="link-menor" data-ir="pagina-cadastro-cliente">editar</button>
+              <button class="botao-icone" aria-label="Excluir"><span aria-hidden="true">🗑️</span></button>
+            </div>
+          </li>
+          <li class="cartao-lista">
+            <div>
+              <strong>Vini</strong>
+              <div class="texto-menor">19 93624-3296</div>
+              <div class="texto-menor">Pessoa Física</div>
+            </div>
+            <div class="acoes-cartao">
+              <button class="link-menor" data-ir="pagina-cadastro-cliente">editar</button>
+              <button class="botao-icone" aria-label="Excluir"><span aria-hidden="true">🗑️</span></button>
+            </div>
+          </li>
+          <li class="cartao-lista">
+            <div>
+              <strong>Ivan</strong>
+              <div class="texto-menor">19 97424-4342</div>
+              <div class="texto-menor">Pessoa Física</div>
+            </div>
+            <div class="acoes-cartao">
+              <button class="link-menor" data-ir="pagina-cadastro-cliente">editar</button>
+              <button class="botao-icone" aria-label="Excluir"><span aria-hidden="true">🗑️</span></button>
+            </div>
+          </li>
+          <li class="cartao-lista">
+            <div>
+              <strong>Willian</strong>
+              <div class="texto-menor">19 96787-6592</div>
+              <div class="texto-menor">Pessoa Física</div>
+            </div>
+            <div class="acoes-cartao">
+              <button class="link-menor" data-ir="pagina-cadastro-cliente">editar</button>
+              <button class="botao-icone" aria-label="Excluir"><span aria-hidden="true">🗑️</span></button>
+            </div>
+          </li>
+        </ul>
+
+        <div class="rodape-pagina-acoes">
+          <button class="botao-secundario">Cancelar</button>
+          <button class="botao-primario" data-ir="pagina-cadastro-cliente">+ novo cadastro</button>
+        </div>
+      </section>
+
+      <!-- PÁGINA: CADASTRO DE CLIENTE -->
+      <section id="pagina-cadastro-cliente" class="pagina" aria-labelledby="titulo-cad-cliente">
+        <header class="cabecalho-pagina">
+          <nav aria-label="Trilha de navegação" class="trilha">
+            <ol>
+              <li><a href="#" data-ir="pagina-dashboard">home</a></li>
+              <li>cadastros</li>
+              <li>clientes</li>
+              <li>cadastro de clientes</li>
+            </ol>
+          </nav>
+        </header>
+
+        <h2 id="titulo-cad-cliente">Cadastro de clientes</h2>
+
+        <form class="formulario padrao">
+          <div class="linha-form">
+            <div class="campo largura-grande">
+              <label for="cli-nome">Nome completo</label>
+              <input id="cli-nome" type="text" placeholder="Insira seu nome" />
+            </div>
+            <div class="campo largura-media">
+              <label for="cli-cel">Celular para contato</label>
+              <div class="grupo-telefone">
+                <select aria-label="DDI">
+                  <option>+123</option>
+                  <option selected>+55</option>
+                </select>
+                <input id="cli-cel" type="tel" placeholder="12 34567-8910" />
+                <button type="button" class="botao-icone" aria-label="Validar número">✔</button>
+              </div>
+            </div>
+            <div class="campo largura-media">
+              <label for="cli-tipo">Tipo de pessoa (PF / PJ)</label>
+              <select id="cli-tipo">
+                <option>Selecione</option>
+                <option>Pessoa Física</option>
+                <option>Pessoa Jurídica</option>
+              </select>
             </div>
           </div>
 
-          <button type="submit" class="botao botao-primario botao-bloco">ENTRAR</button>
+          <details class="bloco-avancado">
+            <summary>+ Avançado (opcional)</summary>
+            <div class="linha-form">
+              <div class="campo largura-grande">
+                <label for="cli-cpf">CPF</label>
+                <input id="cli-cpf" type="text" placeholder="473.886.327-30" />
+              </div>
+              <div class="campo largura-media">
+                <label for="cli-bairro">Bairro</label>
+                <input id="cli-bairro" type="text" placeholder="Cambuí" />
+              </div>
+              <div class="campo largura-media">
+                <label for="cli-nasc">Data de nascimento</label>
+                <input id="cli-nasc" type="text" placeholder="dd/mm/aaaa" />
+              </div>
+            </div>
 
-          <p class="texto-ajuda">
-            <a href="#" class="link">Esqueceu a senha?</a>
-          </p>
+            <div class="linha-form">
+              <div class="campo largura-grande">
+                <label for="cli-rua">Rua do endereço</label>
+                <input id="cli-rua" type="text" placeholder="Rua Barreto Leme" />
+              </div>
+              <div class="campo largura-media">
+                <label for="cli-cidade">Cidade</label>
+                <input id="cli-cidade" type="text" placeholder="Campinas" />
+              </div>
+              <div class="campo largura-media">
+                <label for="cli-email">E-mail</label>
+                <input id="cli-email" type="email" placeholder="faculdadeunisal@gmail.com" />
+              </div>
+            </div>
+
+            <div class="linha-form">
+              <div class="campo largura-pequena">
+                <label for="cli-num">Número do endereço</label>
+                <input id="cli-num" type="text" placeholder="123" />
+              </div>
+              <div class="campo largura-media">
+                <label for="cli-uf">Estado</label>
+                <input id="cli-uf" type="text" placeholder="São Paulo" />
+              </div>
+              <div class="campo largura-media">
+                <label for="cli-rede">Rede social</label>
+                <input id="cli-rede" type="text" placeholder="@" />
+              </div>
+            </div>
+
+            <div class="linha-form">
+              <div class="campo largura-grande">
+                <label for="cli-comp">Complemento do endereço</label>
+                <input id="cli-comp" type="text" placeholder="Conjunto 5, Edifício B" />
+              </div>
+              <div class="campo largura-media">
+                <label for="cli-cep">CEP</label>
+                <input id="cli-cep" type="text" placeholder="11013-030" />
+              </div>
+              <div class="campo largura-media">
+                <label for="cli-obs">Observações de saúde</label>
+                <input id="cli-obs" type="text" placeholder="Exemplos: Alergias, vacinação..." />
+              </div>
+            </div>
+          </details>
+
+          <div class="rodape-pagina-acoes">
+            <button type="button" class="botao-secundario" data-ir="pagina-clientes">Cancelar</button>
+            <button type="submit" class="botao-primario">Cadastrar</button>
+          </div>
         </form>
-      </div>
+      </section>
 
-      <div id="painel-cadastrar" class="painel-aba escondido" role="tabpanel" aria-labelledby="aba-cadastrar">
-        <form class="formulario" action="#" method="post">
-          <div class="campo">
-            <label for="nome">Nome</label>
-            <input id="nome" name="nome" type="text" class="entrada" placeholder="Seu nome completo" />
+      <!-- PÁGINA: SERVIÇOS (LISTA) -->
+      <section id="pagina-servicos" class="pagina" aria-labelledby="titulo-servicos">
+        <header class="cabecalho-pagina">
+          <nav aria-label="Trilha de navegação" class="trilha">
+            <ol>
+              <li><a href="#" data-ir="pagina-dashboard">home</a></li>
+              <li>cadastros</li>
+              <li>serviços</li>
+            </ol>
+          </nav>
+        </header>
+
+        <h2 id="titulo-servicos">Tipos de serviços cadastrados</h2>
+
+        <div class="barra-acoes">
+          <label for="busca-servicos" class="sr-apenas">Pesquisar serviços</label>
+          <input id="busca-servicos" type="search" placeholder="Pesquisar" />
+        </div>
+
+        <ul class="lista-cartoes">
+          <li class="cartao-lista">
+            <div><strong>Massagem Terapêutica</strong><div class="texto-menor">R$150,00</div></div>
+            <div class="acoes-cartao">
+              <button class="link-menor" data-ir="pagina-cadastrar-servico">editar</button>
+              <button class="botao-icone" aria-label="Excluir">🗑️</button>
+            </div>
+          </li>
+          <li class="cartao-lista">
+            <div><strong>Massagem modeladora</strong><div class="texto-menor">R$160,00</div></div>
+            <div class="acoes-cartao">
+              <button class="link-menor" data-ir="pagina-cadastrar-servico">editar</button>
+              <button class="botao-icone" aria-label="Excluir">🗑️</button>
+            </div>
+          </li>
+          <li class="cartao-lista">
+            <div><strong>Massagem X</strong><div class="texto-menor">R$140,00</div></div>
+            <div class="acoes-cartao">
+              <button class="link-menor" data-ir="pagina-cadastrar-servico">editar</button>
+              <button class="botao-icone" aria-label="Excluir">🗑️</button>
+            </div>
+          </li>
+          <li class="cartao-lista">
+            <div><strong>Shiatsu</strong><div class="texto-menor">R$160,00</div></div>
+            <div class="acoes-cartao">
+              <button class="link-menor" data-ir="pagina-cadastrar-servico">editar</button>
+              <button class="botao-icone" aria-label="Excluir">🗑️</button>
+            </div>
+          </li>
+          <li class="cartao-lista">
+            <div><strong>Drenagem linfática</strong><div class="texto-menor">R$160,00</div></div>
+            <div class="acoes-cartao">
+              <button class="link-menor" data-ir="pagina-cadastrar-servico">editar</button>
+              <button class="botao-icone" aria-label="Excluir">🗑️</button>
+            </div>
+          </li>
+          <li class="cartao-lista">
+            <div><strong>Massagem Y</strong><div class="texto-menor">R$120,00</div></div>
+            <div class="acoes-cartao">
+              <button class="link-menor" data-ir="pagina-cadastrar-servico">editar</button>
+              <button class="botao-icone" aria-label="Excluir">🗑️</button>
+            </div>
+          </li>
+        </ul>
+
+        <div class="rodape-pagina-acoes">
+          <button class="botao-secundario">Cancelar</button>
+          <button class="botao-primario" data-ir="pagina-cadastrar-servico">+ novo cadastro</button>
+        </div>
+      </section>
+
+      <!-- PÁGINA: CADASTRAR SERVIÇO -->
+      <section id="pagina-cadastrar-servico" class="pagina" aria-labelledby="titulo-cadastrar-servico">
+        <header class="cabecalho-pagina">
+          <nav aria-label="Trilha de navegação" class="trilha">
+            <ol>
+              <li><a href="#" data-ir="pagina-dashboard">home</a></li>
+              <li>cadastros</li>
+              <li>serviços</li>
+              <li>cadastrar serviço</li>
+            </ol>
+          </nav>
+        </header>
+
+        <h2 id="titulo-cadastrar-servico">Cadastro do tipo de serviço</h2>
+
+        <form class="formulario padrao">
+          <div class="linha-form">
+            <div class="campo largura-grande">
+              <label for="srv-nome">Nome do serviço</label>
+              <input id="srv-nome" type="text" placeholder="Informe o nome" />
+            </div>
+            <div class="campo largura-media">
+              <label for="srv-valor">Valor do serviço</label>
+              <div class="grupo-simples">
+                <span class="prefixo">R$</span>
+                <input id="srv-valor" type="text" placeholder=" " aria-label="Valor do serviço" />
+              </div>
+            </div>
+            <div class="campo largura-media">
+              <label for="srv-tempo">Tempo do serviço (min)</label>
+              <input id="srv-tempo" type="text" placeholder="00" />
+            </div>
           </div>
 
-          <div class="campo">
-            <label for="email2">Email</label>
-            <input id="email2" name="email2" type="email" class="entrada" placeholder="seuemail@exemplo.com" />
-          </div>
+          <fieldset class="bloco-descontos">
+            <legend>Regra de descontos</legend>
+            <div class="linha-desconto">
+              <div class="campo">
+                <label for="desc-qtd-1">Qtd de sessões</label>
+                <input id="desc-qtd-1" type="text" placeholder="00" />
+              </div>
+              <div class="campo">
+                <label for="desc-pct-1">Desconto</label>
+                <div class="grupo-simples">
+                  <input id="desc-pct-1" type="text" placeholder=" " aria-label="Percentual de desconto"/>
+                  <span class="sufixo">%</span>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="link-menor" id="adicionar-desconto">+ adicionar</button>
+          </fieldset>
 
-          <div class="campo">
-            <label for="senha2">Senha</label>
-            <input id="senha2" name="senha2" type="password" class="entrada" placeholder="Crie uma senha" />
+          <div class="rodape-pagina-acoes">
+            <button type="button" class="botao-secundario" data-ir="pagina-servicos">Cancelar</button>
+            <button type="submit" class="botao-primario">Cadastrar</button>
           </div>
-
-          <button type="submit" class="botao botao-primario botao-bloco">CRIAR CONTA</button>
         </form>
-      </div>
-    </section>
-  </main>
+      </section>
 
-  <footer class="rodape">
-    <div class="linha-rodape"></div>
-    <p>© Esteticash - Todos os direitos reservados</p>
+    
+      
+      <!-- PÁGINA: CADASTRAR FORMA DE PAGAMENTO -->
+      <section id="pagina-cadastrar-forma" class="pagina" aria-labelledby="titulo-cadastrar-forma">
+        <header class="cabecalho-pagina">
+          <nav aria-label="Trilha de navegação" class="trilha">
+            <ol>
+              <li><a href="#" data-ir="pagina-dashboard">home</a></li>
+              <li>cadastrar</li>
+              <li>formas de pagamento</li>
+              <li>cadastro de pagamento</li>
+            </ol>
+          </nav>
+        </header>
+
+        <h2 id="titulo-cadastrar-forma">Cadastro de pagamento</h2>
+
+        <form class="formulario padrao" aria-describedby="ajuda-forma">
+          <div id="ajuda-forma" class="sr-apenas">Informe um nome e se possui juros.</div>
+
+          <div class="linha-form">
+            <div class="campo largura-grande">
+              <label for="fp-nome">Nome da forma de pagamento</label>
+              <input id="fp-nome" type="text" placeholder="Ex. Dinheiro, débito, crédito, pix" />
+            </div>
+
+            <fieldset class="campo largura-media radios-pills">
+              <legend>Possui juros?</legend>
+              <div class="grupo-pills" role="radiogroup" aria-label="Possui juros">
+                <label class="pill">
+                  <input type="radio" name="fp-juros" value="sim" />
+                  <span>Sim</span>
+                </label>
+                <label class="pill">
+                  <input type="radio" name="fp-juros" value="nao" checked />
+                  <span>Não</span>
+                </label>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="linha-form bloco-juros oculto" aria-hidden="true">
+            <div class="campo">
+              <label for="fp-percentual">% de juros</label>
+              <div class="grupo-simples">
+                <input id="fp-percentual" type="text" placeholder="0,00" inputmode="decimal" aria-label="Percentual de juros" />
+                <span class="sufixo">%</span>
+              </div>
+            </div>
+            <div class="campo">
+              <label for="fp-custo">Custo por transação</label>
+              <div class="grupo-simples">
+                <span class="prefixo">R$</span>
+                <input id="fp-custo" type="text" placeholder=" " inputmode="decimal" aria-label="Custo por transação"/>
+              </div>
+            </div>
+          </div>
+
+          <div class="rodape-pagina-acoes">
+            <button type="button" class="botao-secundario" data-ir="pagina-formas-lista">Cancelar</button>
+            <button type="submit" class="botao-primario">Cadastrar</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- PÁGINA: LISTA FORMAS DE PAGAMENTO -->
+      <section id="pagina-formas-lista" class="pagina" aria-labelledby="titulo-formas-lista">
+        <header class="cabecalho-pagina">
+          <nav aria-label="Trilha de navegação" class="trilha">
+            <ol>
+              <li><a href="#" data-ir="pagina-dashboard">home</a></li>
+              <li>cadastro</li>
+              <li>formas de pagamento</li>
+              <li>cadastro forma de pagamento</li>
+            </ol>
+          </nav>
+        </header>
+
+        <h2 id="titulo-formas-lista">Pagamentos cadastrados</h2>
+
+        <div class="barra-acoes">
+          <label for="busca-formas" class="sr-apenas">Pesquisar formas de pagamento</label>
+          <input id="busca-formas" type="search" placeholder="Pesquisar" />
+        </div>
+
+        <ul class="lista-cartoes">
+          <li class="cartao-lista">
+            <div><strong>Dinheiro</strong><div class="texto-menor">Sem juros</div></div>
+            <div class="acoes-cartao">
+              <button class="link-menor" data-ir="pagina-cadastrar-forma">editar</button>
+              <button class="botao-icone" aria-label="Excluir">🗑️</button>
+            </div>
+          </li>
+          <li class="cartao-lista">
+            <div><strong>Débito</strong><div class="texto-menor">1,5% + R$0,50</div></div>
+            <div class="acoes-cartao">
+              <button class="link-menor" data-ir="pagina-cadastrar-forma">editar</button>
+              <button class="botao-icone" aria-label="Excluir">🗑️</button>
+            </div>
+          </li>
+          <li class="cartao-lista">
+            <div><strong>Boleto</strong><div class="texto-menor">Sem juros</div></div>
+            <div class="acoes-cartao">
+              <button class="link-menor" data-ir="pagina-cadastrar-forma">editar</button>
+              <button class="botao-icone" aria-label="Excluir">🗑️</button>
+            </div>
+          </li>
+          <li class="cartao-lista">
+            <div><strong>Pix</strong><div class="texto-menor">Sem juros</div></div>
+            <div class="acoes-cartao">
+              <button class="link-menor" data-ir="pagina-cadastrar-forma">editar</button>
+              <button class="botao-icone" aria-label="Excluir">🗑️</button>
+            </div>
+          </li>
+        </ul>
+
+        <div class="rodape-pagina-acoes">
+          <button class="botao-secundario">Cancelar</button>
+          <button class="botao-primario" data-ir="pagina-cadastrar-forma">+ novo cadastro</button>
+        </div>
+      </section>
+
+      <!-- PÁGINA: REGISTRO DE PRESENÇA -->
+      <section id="pagina-registro-presenca" class="pagina" aria-labelledby="titulo-reg-presenca">
+        <header class="cabecalho-pagina">
+          <nav aria-label="Trilha de navegação" class="trilha">
+            <ol>
+              <li><a href="#" data-ir="pagina-dashboard">home</a></li>
+              <li>registro de presença</li>
+            </ol>
+          </nav>
+        </header>
+
+        <h2 id="titulo-reg-presenca">Registro de presença</h2>
+
+        <form class="formulario padrao">
+          <div class="linha-form">
+            <div class="campo largura-grande">
+              <label for="rp-servico">Nome do serviço</label>
+              <div class="grupo-simples">
+                <select id="rp-servico" aria-label="Nome do serviço">
+                  <option>Selecione</option>
+                  <option>Modelo 1</option>
+                  <option>Modelo 2</option>
+                </select>
+                <span class="sufixo" aria-hidden="true">🔎</span>
+              </div>
+            </div>
+            <div class="campo largura-grande">
+              <label for="rp-cliente">Cliente</label>
+              <div class="grupo-simples">
+                <input id="rp-cliente" type="text" placeholder="Informe o cliente" />
+                <span class="sufixo" aria-hidden="true">🔎</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="linha-form">
+            <div class="campo largura-media">
+              <label for="rp-data">Data</label>
+              <div class="grupo-simples">
+                <input id="rp-data" type="text" placeholder="dd/mm/aaaa" inputmode="numeric" />
+                <span class="sufixo" aria-hidden="true">📅</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="rodape-pagina-acoes">
+            <button type="button" class="botao-secundario">Cancelar</button>
+            <button type="submit" class="botao-primario">Salvar</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- PÁGINA: SESSÕES PENDENTES -->
+      <section id="pagina-sessoes-pendentes" class="pagina" aria-labelledby="titulo-sessoes">
+        <header class="cabecalho-pagina">
+          <nav aria-label="Trilha de navegação" class="trilha">
+            <ol>
+              <li><a href="#" data-ir="pagina-dashboard">home</a></li>
+              <li>sessões pendentes</li>
+            </ol>
+          </nav>
+        </header>
+
+        <h2 id="titulo-sessoes">Sessões pendentes</h2>
+
+        <form class="barra-acoes" onsubmit="return false">
+          <label for="filtro-cliente" class="sr-apenas">Cliente</label>
+          <input id="filtro-cliente" type="search" placeholder="Cliente" />
+          <button class="botao-primario" type="button">Filtrar</button>
+        </form>
+
+        <div class="tabela-responsiva" role="region" aria-label="Lista de sessões pendentes">
+          <table class="tabela">
+            <thead>
+              <tr>
+                <th scope="col">Data de compra</th>
+                <th scope="col">Nome do serviço</th>
+                <th scope="col">Cliente</th>
+                <th scope="col">Sessões pagas</th>
+                <th scope="col">Sessões já utilizadas</th>
+                <th scope="col">Sessões pendentes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>02/03/2025</td><td>Modeladora</td><td>Flávia Gonzaga</td><td>2</td><td>1</td><td>1</td>
+              </tr>
+              <tr class="linha-zebra">
+                <td>15/03/2025</td><td>Linfática</td><td>Gabriel José</td><td>3</td><td>1</td><td>2</td>
+              </tr>
+              <tr>
+                <td>22/03/2025</td><td>Terapêutica</td><td>Luiza Miller</td><td>7</td><td>4</td><td>3</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="5" class="alinha-direita"><strong>Total</strong></td>
+                <td><strong>6</strong></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <div class="rodape-pagina-acoes">
+          <button class="botao-secundario">Cancelar</button>
+          <button class="botao-primario" type="button" id="baixar-csv">Baixar CSV</button>
+        </div>
+      </section>
+
+      <!-- PÁGINA: REGISTRO DE ENTRADA -->
+      <section id="pagina-registro-entrada" class="pagina" aria-labelledby="titulo-reg-entrada">
+        <header class="cabecalho-pagina">
+          <nav aria-label="Trilha de navegação" class="trilha">
+            <ol>
+              <li><a href="#" data-ir="pagina-dashboard">home</a></li>
+              <li>movimentação</li>
+              <li>registro de entradas</li>
+            </ol>
+          </nav>
+        </header>
+
+        <h2 id="titulo-reg-entrada">Registro de entradas</h2>
+
+        <form class="formulario padrao">
+          <div class="linha-form">
+            <div class="campo">
+              <label for="re-servico">Nome do serviço</label>
+              <select id="re-servico">
+                <option>Selecione</option>
+                <option>Massagem Terapêutica</option>
+              </select>
+            </div>
+            <div class="campo">
+              <label for="re-cliente">Cliente</label>
+              <div class="grupo-simples">
+                <input id="re-cliente" type="text" placeholder="Informe o cliente" />
+                <span class="sufixo" aria-hidden="true">🔎</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="linha-form">
+            <div class="campo">
+              <label for="re-forma">Forma de pagamento</label>
+              <select id="re-forma">
+                <option>Selecione</option>
+                <option>Pix</option>
+                <option>Débito</option>
+              </select>
+            </div>
+            <div class="campo">
+              <label for="re-qtd">Quantidade de sessões</label>
+              <select id="re-qtd">
+                <option>Selecione</option>
+                <option>1</option><option>3</option><option>5</option>
+              </select>
+            </div>
+            <div class="campo">
+              <label for="re-desc">Desconto</label>
+              <div class="grupo-simples">
+                <span class="prefixo">R$</span>
+                <input id="re-desc" type="text" placeholder=" " />
+              </div>
+            </div>
+            <div class="campo">
+              <label for="re-total">Valor total</label>
+              <input id="re-total" type="text" value="R$150,00" aria-readonly="true" readonly />
+            </div>
+          </div>
+
+          <div class="linha-form">
+            <div class="campo">
+              <label for="re-data">Data</label>
+              <div class="grupo-simples">
+                <input id="re-data" type="text" placeholder="dd/mm/aaaa" />
+                <span class="sufixo" aria-hidden="true">📅</span>
+              </div>
+            </div>
+
+            <fieldset class="campo radios-pills">
+              <legend>Nota fiscal emitida?</legend>
+              <div class="grupo-pills" role="radiogroup">
+                <label class="pill"><input type="radio" name="re-nf" checked /><span>Sim</span></label>
+                <label class="pill"><input type="radio" name="re-nf" /><span>Não</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="campo radios-pills">
+              <legend>1º sessão já realizada?</legend>
+              <div class="grupo-pills" role="radiogroup">
+                <label class="pill"><input type="radio" name="re-s1" checked /><span>Sim</span></label>
+                <label class="pill"><input type="radio" name="re-s1" /><span>Não</span></label>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="rodape-pagina-acoes">
+            <button type="button" class="botao-secundario">Cancelar</button>
+            <button type="submit" class="botao-primario">Salvar</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- PÁGINA: REGISTRO DE SAÍDA -->
+      <section id="pagina-registro-saida" class="pagina" aria-labelledby="titulo-reg-saida">
+        <header class="cabecalho-pagina">
+          <nav aria-label="Trilha de navegação" class="trilha">
+            <ol>
+              <li><a href="#" data-ir="pagina-dashboard">home</a></li>
+              <li>movimentação</li>
+              <li>registro de entradas</li>
+            </ol>
+          </nav>
+        </header>
+
+        <h2 id="titulo-reg-saida">Registro de saídas</h2>
+
+        <form class="formulario padrao">
+          <div class="linha-form">
+            <div class="campo">
+              <label for="rs-data">Data</label>
+              <div class="grupo-simples">
+                <input id="rs-data" type="text" placeholder="dd/mm/aaaa" />
+                <span class="sufixo" aria-hidden="true">📅</span>
+              </div>
+            </div>
+            <div class="campo">
+              <label for="rs-valor">Valor pago</label>
+              <div class="grupo-simples">
+                <span class="prefixo">R$</span>
+                <input id="rs-valor" type="text" placeholder=" " />
+              </div>
+            </div>
+            <div class="campo">
+              <label for="rs-forma">Forma de pagamento utilizada (opcional)</label>
+              <select id="rs-forma">
+                <option>Selecione</option>
+                <option>Pix</option>
+                <option>Cartão</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="linha-form">
+            <div class="campo largura-grande">
+              <label for="rs-desc">Descrição do serviço ou produto comprado*</label>
+              <input id="rs-desc" type="text" placeholder="Manutenção vaso sanitário" />
+            </div>
+          </div>
+
+          <div class="rodape-pagina-acoes">
+            <button type="button" class="botao-secundario">Cancelar</button>
+            <button type="submit" class="botao-primario">Salvar</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- PÁGINA: REGISTRO DE TRANSFERÊNCIAS -->
+      <section id="pagina-transferencias" class="pagina" aria-labelledby="titulo-transf">
+        <header class="cabecalho-pagina">
+          <nav aria-label="Trilha de navegação" class="trilha">
+            <ol>
+              <li><a href="#" data-ir="pagina-dashboard">home</a></li>
+              <li>movimentação</li>
+              <li>registro de transferências</li>
+            </ol>
+          </nav>
+        </header>
+
+        <h2 id="titulo-transf">Registro de transferências</h2>
+
+        <form class="formulario padrao">
+          <div class="linha-form">
+            <div class="campo">
+              <label for="rt-data">Data</label>
+              <div class="grupo-simples">
+                <input id="rt-data" type="text" value="23/04/2025" />
+                <span class="sufixo" aria-hidden="true">📅</span>
+              </div>
+            </div>
+            <div class="campo">
+              <label for="rt-valor">Valor retirado</label>
+              <input id="rt-valor" type="text" value="R$150,00" />
+            </div>
+          </div>
+
+          <div class="linha-form">
+            <div class="campo largura-grande">
+              <label for="rt-obs">Observação</label>
+              <input id="rt-obs" type="text" placeholder="Manutenção vaso sanitário" />
+            </div>
+          </div>
+
+          <div class="rodape-pagina-acoes">
+            <button type="button" class="botao-secundario">Cancelar</button>
+            <button type="submit" class="botao-primario">Salvar</button>
+          </div>
+        </form>
+      </section>
+
+            <!-- PÁGINA: EXTRATO DE ENTRADAS -->
+      <section id="pagina-extrato-entradas" class="pagina" aria-labelledby="titulo-extrato-entradas">
+        <header class="cabecalho-pagina">
+          <nav aria-label="Trilha de navegação" class="trilha">
+            <ol>
+              <li><a href="#" data-ir="pagina-dashboard">home</a></li>
+              <li>extrato</li>
+              <li>extrato de entradas</li>
+            </ol>
+          </nav>
+        </header>
+
+        <h2 id="titulo-extrato-entradas">Extrato de entradas</h2>
+
+        <form class="barra-acoes" onsubmit="return false">
+          <label for="filtro-entradas" class="sr-apenas">Data</label>
+          <div class="grupo-simples" style="max-width:340px">
+            <input id="filtro-entradas" type="text" placeholder="dd/mm/aaaa - dd/mm/aaaa" inputmode="numeric" />
+            <span class="sufixo" aria-hidden="true">📅</span>
+          </div>
+          <button class="botao-primario" type="button">Filtrar</button>
+        </form>
+
+        <div class="tabela-responsiva" role="region" aria-label="Lista de entradas">
+          <table class="tabela">
+            <thead>
+              <tr>
+                <th scope="col">Data</th>
+                <th scope="col">Nome do serviço</th>
+                <th scope="col">Cliente</th>
+                <th scope="col">Quantidade sessões</th>
+                <th scope="col">Forma de pagamento</th>
+                <th scope="col" class="alinha-direita">Valor pago</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>02/03/2025</td><td>Modeladora</td><td>Flávia Gonzaga</td><td>1</td><td>Cartão de débito</td><td class="alinha-direita">R$150,00</td>
+              </tr>
+              <tr class="linha-zebra">
+                <td>15/03/2025</td><td>Linfática</td><td>Gabriel José</td><td>4</td><td>Pix</td><td class="alinha-direita">R$220,00</td>
+              </tr>
+              <tr>
+                <td>22/03/2025</td><td>Terapêutica</td><td>Luiza Miller</td><td>3</td><td>Cartão de débito</td><td class="alinha-direita">R$380,00</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="5" class="alinha-direita"><strong>Total</strong></td>
+                <td class="alinha-direita"><strong>R$750,00</strong></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <div class="rodape-pagina-acoes">
+          <button class="botao-secundario">Cancelar</button>
+          <button class="botao-primario" type="button" id="baixar-csv-entradas">Baixar CSV</button>
+        </div>
+      </section>
+
+      <!-- PÁGINA: EXTRATO DE SAÍDAS -->
+      <section id="pagina-extrato-saidas" class="pagina" aria-labelledby="titulo-extrato-saidas">
+        <header class="cabecalho-pagina">
+          <nav aria-label="Trilha de navegação" class="trilha">
+            <ol>
+              <li><a href="#" data-ir="pagina-dashboard">home</a></li>
+              <li>extrato</li>
+              <li>extrato de saídas</li>
+            </ol>
+          </nav>
+        </header>
+
+        <h2 id="titulo-extrato-saidas">Extrato de saídas</h2>
+
+        <form class="barra-acoes" onsubmit="return false">
+          <label for="filtro-saidas" class="sr-apenas">Data</label>
+          <div class="grupo-simples" style="max-width:340px">
+            <input id="filtro-saidas" type="text" placeholder="dd/mm/aaaa - dd/mm/aaaa" inputmode="numeric" />
+            <span class="sufixo" aria-hidden="true">📅</span>
+          </div>
+          <button class="botao-primario" type="button">Filtrar</button>
+        </form>
+
+        <div class="tabela-responsiva" role="region" aria-label="Lista de saídas">
+          <table class="tabela">
+            <thead>
+              <tr>
+                <th scope="col">Data</th>
+                <th scope="col">Descrição do serviço ou produto</th>
+                <th scope="col">Forma de pagamento</th>
+                <th scope="col" class="alinha-direita">Valor pago</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>02/03/2025</td><td>Máquina elétrica massageadora</td><td>Cartão de débito</td><td class="alinha-direita">R$380,00</td>
+              </tr>
+              <tr class="linha-zebra">
+                <td>15/03/2025</td><td>Colchão apoiador</td><td>Pix</td><td class="alinha-direita">R$110,00</td>
+              </tr>
+              <tr>
+                <td>22/03/2025</td><td>Pano para limpeza</td><td>Cartão de débito</td><td class="alinha-direita">R$38,00</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="3" class="alinha-direita"><strong>Total</strong></td>
+                <td class="alinha-direita"><strong>R$520,00</strong></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <div class="rodape-pagina-acoes">
+          <button class="botao-secundario">Cancelar</button>
+          <button class="botao-primario" type="button" id="baixar-csv-saidas">Baixar CSV</button>
+        </div>
+      </section>
+
+      <!-- PÁGINA: EXTRATO DE TRANSFERÊNCIAS -->
+      <section id="pagina-extrato-transferencias" class="pagina" aria-labelledby="titulo-extrato-transferencias">
+        <header class="cabecalho-pagina">
+          <nav aria-label="Trilha de navegação" class="trilha">
+            <ol>
+              <li><a href="#" data-ir="pagina-dashboard">home</a></li>
+              <li>extrato</li>
+              <li>extrato de transferências</li>
+            </ol>
+          </nav>
+        </header>
+
+        <h2 id="titulo-extrato-transferencias">Extrato de transferências</h2>
+
+        <form class="barra-acoes" onsubmit="return false">
+          <label for="filtro-transf" class="sr-apenas">Data</label>
+          <div class="grupo-simples" style="max-width:340px">
+            <input id="filtro-transf" type="text" placeholder="dd/mm/aaaa - dd/mm/aaaa" inputmode="numeric" />
+            <span class="sufixo" aria-hidden="true">📅</span>
+          </div>
+          <button class="botao-primario" type="button">Filtrar</button>
+        </form>
+
+        <div class="tabela-responsiva" role="region" aria-label="Lista de transferências">
+          <table class="tabela">
+            <thead>
+              <tr>
+                <th scope="col">Data</th>
+                <th scope="col">Observação</th>
+                <th scope="col" class="alinha-direita">Valor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>17/09/2025</td><td>Conta de água</td><td class="alinha-direita">R$99,90</td>
+              </tr>
+              <tr class="linha-zebra">
+                <td>15/10/2025</td><td>Conta de energia</td><td class="alinha-direita">R$298,00</td>
+              </tr>
+              <tr>
+                <td>01/08/2025</td><td>Aluguel</td><td class="alinha-direita">R$2346,98</td>
+              </tr>
+              <tr class="linha-zebra">
+                <td>01/08/2025</td><td>Cadeira nova (recepção)</td><td class="alinha-direita">R$349,00</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="2" class="alinha-direita"><strong>Total</strong></td>
+                <td class="alinha-direita"><strong>R$3.093,88</strong></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <div class="rodape-pagina-acoes">
+          <button class="botao-secundario">Cancelar</button>
+          <button class="botao-primario" type="button" id="baixar-csv-transferencias">Baixar CSV</button>
+        </div>
+      </section>
+
+      <!-- PÁGINA: EXTRATO GERAL -->
+      <section id="pagina-extrato-geral" class="pagina" aria-labelledby="titulo-extrato-geral">
+        <header class="cabecalho-pagina">
+          <nav aria-label="Trilha de navegação" class="trilha">
+            <ol>
+              <li><a href="#" data-ir="pagina-dashboard">home</a></li>
+              <li>extrato</li>
+              <li>extrato geral</li>
+            </ol>
+          </nav>
+        </header>
+
+        <h2 id="titulo-extrato-geral">Extrato geral</h2>
+
+        <form class="barra-acoes" onsubmit="return false">
+          <label for="filtro-geral" class="sr-apenas">Data</label>
+          <div class="grupo-simples" style="max-width:220px">
+            <input id="filtro-geral" type="text" placeholder="dd/mm/aaaa" inputmode="numeric" />
+            <span class="sufixo" aria-hidden="true">📅</span>
+          </div>
+          <button class="botao-primario" type="button">Filtrar</button>
+        </form>
+
+        <div class="tabela-responsiva" role="region" aria-label="Extrato geral">
+          <table class="tabela">
+            <thead>
+              <tr>
+                <th scope="col">Data</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Cliente/ destinatário</th>
+                <th scope="col">Forma de pagamento</th>
+                <th scope="col" class="alinha-direita">Valor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>17/09/2025</td><td>Entrada</td><td>Massagem</td><td>Flávia Gonzaga</td><td>Cartão de débito</td><td class="alinha-direita">+ R$99,90</td>
+              </tr>
+              <tr class="linha-zebra">
+                <td>15/10/2025</td><td>Saída</td><td>Insumo</td><td>MACA. LTDA</td><td>Pix</td><td class="alinha-direita">- R$298,00</td>
+              </tr>
+              <tr>
+                <td>01/08/2025</td><td>Saída</td><td>Gasolina</td><td>IPIRANGA</td><td>Cartão de débito</td><td class="alinha-direita">- R$198,00</td>
+              </tr>
+              <tr class="linha-zebra">
+                <td>01/08/2025</td><td>Entrada</td><td>Massagem</td><td>Felipe Braga</td><td>Cartão de crédito</td><td class="alinha-direita">+ R$349,00</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="5" class="alinha-direita"><strong>Total</strong></td>
+                <td class="alinha-direita"><strong>- R$48,00</strong></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <div class="rodape-pagina-acoes">
+          <button class="botao-secundario">Cancelar</button>
+          <button class="botao-primario" type="button" id="baixar-csv-geral">Baixar CSV</button>
+        </div>
+      </section>
+
+  </div>
+
+
+
+    </main>
+
+
+  <footer class="rodape-site" role="contentinfo">
+    <div class="conteudo-rodape">
+      <span>© Esteticash - Todos os direitos reservados</span>
+    </div>
   </footer>
-
-  <script src="script.js" defer></script>
 </body>
 </html>
