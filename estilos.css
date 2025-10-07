@@ -2,7 +2,7 @@
   --azul-escuro:#213a53;
   --azul-escuro-2:#1f3750;
   --verde-claro:#8dc1b2;
-  --verde-card:#93c7b9;
+  --verde-card:#80bbac;
   --azul-botao:#1e3650;
   --texto:#16222e;
   --borda:#d8e3ea;
@@ -32,8 +32,14 @@ img,svg{
   height:auto;
 }
 
+.icone-usuario {
+  width: 32px;      
+  height: 32px;
+}
+
 button{
-  cursor:pointer
+  cursor:pointer;
+  text-transform: uppercase;
 }
 
 a{
@@ -66,14 +72,25 @@ a{
   display:flex;
   align-items:center;
   gap:1rem;
-  padding:.75rem 1.25rem;
   border-bottom:1px solid rgba(255,255,255,.12);
 }
 
 .marca-site{
-  display:flex;
-  align-items:center;gap:.5rem;
-  color:#fff;
+  display:inline-flex;
+  align-items:center;
+  background:#fff;                 
+  padding:.45rem .75rem;
+  border-radius:0; 
+  text-decoration:none;
+  min-width:260px;
+  height:100%;
+}
+
+.logo-pequena{
+  height:48px;   
+  width:auto;
+  display:block;
+  padding-left: 10px;
 }
 
 .titulo-site{
@@ -135,6 +152,8 @@ a{
   background:transparent;
   color:#dbe7f1;
   font-weight:600;
+  cursor:pointer;
+  font-weight: bold;
 }
 
 .item-menu.ativo,.item-menu:hover{
@@ -170,6 +189,9 @@ a{
   border-radius:8px;border:0;
   background:transparent;
   color:#cfe2f2;
+  cursor:pointer;
+  font-weight: bold;
+  font-size: 11px;
 }
 
 .subitem-menu:hover{
@@ -283,6 +305,8 @@ a{
   border-radius:10px;
   font-weight:700;
   box-shadow:var(--sombra);
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
 .link-menor{
@@ -323,11 +347,13 @@ a{
   justify-content:center;
   background:var(--verde-card);
   border:0;
-  border-radius:16px;
+  border-radius:10px;
   padding:2.5rem 1rem;
   box-shadow:var(--sombra);
   font-weight:800;
   color:#17374a;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
 .icone-atalho{
@@ -377,7 +403,7 @@ a{
 }
 
 .kpi{
-  background:#cfe5de;
+  background:var(--verde-card);
   border-radius:12px;
   padding:.8rem .9rem;
   box-shadow:var(--sombra);
@@ -524,6 +550,8 @@ a{
   border:1px solid var(--borda);
   padding:.8rem 1rem;
   border-radius:10px;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
 /* Rodapé */
@@ -538,10 +566,10 @@ a{
   max-width:1200px;
   margin:0 auto;
   padding:.6rem 1rem;
-  color:#123243;
+  color:#fff;
+  font-size: 12px;
 }
 
-/* Acessibilidade extra */
 .sr-apenas{
   position:absolute;
   left:-9999px;
@@ -783,7 +811,3 @@ body.menu-aberto .mask-menu{
 
   .area-paginas{ padding-top:1rem; }
 }
-
-
-
-
