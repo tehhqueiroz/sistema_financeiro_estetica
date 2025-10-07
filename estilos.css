@@ -334,26 +334,30 @@ a{
   left:-9999px;
 }
 
-.grade-cartoes{
-  display:grid;
-  grid-template-columns:repeat(2, minmax(180px,1fr));
-  gap:1.25rem;
+.grade-cartoes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  max-width: 900px;          
+  margin: 0 auto;           
 }
 
-.cartao-atalho{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  background:var(--verde-card);
-  border:0;
-  border-radius:10px;
-  padding:2.5rem 1rem;
-  box-shadow:var(--sombra);
-  font-weight:800;
-  color:#17374a;
+.cartao-atalho {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--verde-card);
+  border: 0;
+  border-radius: 10px;
+  padding: 1.75rem 1rem;     
+  box-shadow: var(--sombra);
+  font-weight: 800;
+  color: #17374a;
   text-transform: uppercase;
   cursor: pointer;
+  min-height: 140px;         
+  max-width: 360px;                   
 }
 
 .icone-atalho{
@@ -818,4 +822,17 @@ body.menu-aberto .mask-menu{
 
   .area-paginas{ padding-top:1rem; }
 }
+
+
+#pagina-dashboard .painel-dashboard{
+  max-width: 1200px;           
+  margin: 0 auto;
+  grid-template-columns: minmax(0,1fr) 380px;
+}
+
+
+@media (min-width: 1600px){
+  #pagina-dashboard .painel-dashboard{ max-width: 1320px; }
+}
+
 
