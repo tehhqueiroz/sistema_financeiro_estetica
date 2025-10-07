@@ -202,8 +202,8 @@ a{
 }
 
 .icone-submenu{
-  width: 18px;         
-  height: 18px;
+  width: 30px;         
+  height: 30px;
   flex-shrink: 0;
   display: inline-block;
 }
@@ -851,5 +851,6 @@ body.menu-aberto .mask-menu{
 @media (min-width: 1600px){
   #pagina-dashboard .painel-dashboard{ max-width: 1320px; }
 }
+
 
 
