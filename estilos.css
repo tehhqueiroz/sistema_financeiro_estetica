@@ -361,6 +361,13 @@ a{
   margin-bottom:.5rem;
 }
 
+.icone-imagem {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  display: block;
+}
+
 .painel-resumo{
   display:flex;
   flex-direction:column;
@@ -811,3 +818,4 @@ body.menu-aberto .mask-menu{
 
   .area-paginas{ padding-top:1rem; }
 }
+
