@@ -192,10 +192,20 @@ a{
   cursor:pointer;
   font-weight: bold;
   font-size: 11px;
+  display: flex;
+  align-items: center;
+  gap: .5rem;          }
 }
 
 .subitem-menu:hover{
   background:rgba(255,255,255,.06);
+}
+
+.icone-submenu{
+  width: 18px;         
+  height: 18px;
+  flex-shrink: 0;
+  display: inline-block;
 }
 
 /* Páginas */
