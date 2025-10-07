@@ -372,6 +372,13 @@ a{
   display: block;
 }
 
+.icone-imagem-pequeno{
+  width: 30px;
+  height: 20px;
+  object-fit: contain;
+  display: block;
+}
+
 .painel-resumo{
   display:flex;
   flex-direction:column;
@@ -725,7 +732,7 @@ body.modo-login .area-paginas {
 
 
 .logo-grande-imagem {
-  width: min(70vw, 500px);  
+  width: min(70vw, 600px);  
   height: auto;
   display: block;
   margin-left: 5vw;         
