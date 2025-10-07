@@ -14,12 +14,9 @@
   <header class="topo-site" role="banner" aria-label="Cabeçalho do sistema">
   <div class="barra-superior">
     <button class="btn-menu" aria-label="Abrir menu" aria-controls="menu-lateral" aria-expanded="false">☰</button>
-      <div class="marca-site" aria-label="Esteticash - início" tabindex="0">
-        <span class="logo" aria-hidden="true">
-          <!-- [Aqui eu vou colocar o logo depois] -->
-        </span>
-        <strong class="titulo-site">Esteticash</strong>
-      </div>
+	<a class="marca-site" href="#" data-ir="pagina-dashboard" aria-label="Esteticash — início">
+ 		 <img src="logo-esteticash.png" alt="Esteticash" class="logo-pequena">
+	</a>
 
       <form class="busca-site" role="search" aria-label="Pesquisar">
         <label for="campo-pesquisa" class="sr-apenas">Pesquisar</label>
@@ -29,9 +26,9 @@
         </button>
       </form>
 
-      <button class="perfil-usuario botao-icone" aria-label="Perfil do usuário">
-        <span aria-hidden="true">👤</span>
-      </button>
+	<button class="perfil-usuario botao-icone" aria-label="Perfil do usuário">
+  		<img src="usuario.svg" alt="Perfil do usuário" class="icone-usuario">
+	</button>
     </div>
   </header>
 
@@ -144,10 +141,9 @@
 
       <!-- PÁGINA: DASHBOARD -->
       <section id="pagina-dashboard" class="pagina" aria-labelledby="titulo-dashboard">
-        <h2 id="titulo-dashboard" class="sr-apenas">Dashboard</h2>
+        <h2 id="titulo-dashboard">Menu rápido</h2>
         <div class="painel-dashboard">
           <section class="menu-rapido" aria-label="Menu rápido">
-            <h3 class="titulo-caixa">Menu rápido</h3>
 
             <div class="grade-cartoes">
               <button class="cartao-atalho" data-ir="pagina-registro-presenca" aria-label="Ir para Registro de presença">
@@ -1224,6 +1220,3 @@
   </footer>
 </body>
 </html>
-
-
-
