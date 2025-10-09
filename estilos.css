@@ -336,15 +336,23 @@ a{
 
 /* Dashboard */
 .painel-dashboard{
-  display:grid;
-  grid-template-columns:1fr 380px;
-  gap:2rem
+  display: grid;
+  grid-template-columns: minmax(0,1fr) 380px; /* coluna de conteúdo pode encolher */
+  grid-template-areas: "menu resumo";
+  gap: 5rem;
+  align-items: start;
+  max-width: 1200px;
+  margin: 4rem;
 }
 
 .menu-rapido .titulo-caixa{
   position:absolute;
   left:-9999px;
+
 }
+
+.menu-rapido   { grid-area: menu;   min-width: 0; }  /* atualizado 2 */
+.painel-resumo { grid-area: resumo; min-width: 0; } /* atualizado 2 */
 
 .grade-cartoes {
   display: grid;
@@ -354,12 +362,6 @@ a{
   margin: 0 auto;           
 }
 
-@media (max-width: 1024px){
-  .grade-cartoes{ grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 640px){
-  .grade-cartoes{ grid-template-columns: 1fr; }
-}
 
 .cartao-atalho {
   display: flex;
@@ -663,43 +665,6 @@ color: #ffffff;
   overflow:hidden;
 }
 
-/* Responsividade */
-@media (max-width: 1100px){
-  .container-app{
-    grid-template-columns:1fr;
-  }
-  .menu-lateral{
-    position:sticky;
-    top:58px;
-    z-index:20;
-  }
-  .painel-dashboard{
-    grid-template-columns:1fr;
-    gap: 1.75rem; /* atualizado */
-  }
-  .lista-cartoes
-  grid-template-columns:1fr 1fr;
-}
-
-  .grade-login{
-    grid-template-columns:1fr;
-  }
-  .logo-grande{
-    text-align:center;
-  }
-}
-
-@media (max-width: 680px){
-  .lista-cartoes{
-    grid-template-columns:1fr;
-  }
-  .linha-form{
-    grid-template-columns:1fr;
-  }
-  .grupo-telefone{
-    grid-template-columns:100px 1fr 44px;
-  }
-}
 
 /* Pílulas de rádio (sim/não) */
 .radios-pills .grupo-pills{
@@ -813,18 +778,6 @@ body.modo-login .area-paginas {
   background: #1f3851; 
 }
 
-@media (max-width: 900px) {
-  #pagina-login .grade-login {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    padding: 16px;
-  }
-  .logo-grande-imagem {
-    margin: 0 auto;
-    width: min(80vw, 400px);
-  }
-}
-
 
 body.modo-login .container-app {
   grid-template-columns: 1fr !important; 
@@ -873,37 +826,96 @@ body.menu-aberto .mask-menu{
 }
 
 
-@media (max-width:1100px){
+  
+
+
+
+/* ======== MUITO LARGO (>=1600) ======== */
+@media (min-width: 1600px){
+  #pagina-dashboard .painel-dashboard{ max-width: 1320px;}
+}
+
+/* ======== <=1100px — quebra principal ======== */
+/* Drawer do menu, dashboard 1 coluna, grades em 2 colunas */
+@media (max-width: 1100px){
   .btn-menu{ display:inline-block; }
 
   .container-app{ grid-template-columns: 1fr; }
 
+  /* Menu lateral como drawer fixo */
   .menu-lateral{
-    position:fixed;
-    top:58px;               /* logo abaixo do header */
-    left:-280px;            /* escondido */
-    width:280px;
-    height:calc(100vh - 58px);
-    overflow:auto;
-    transition:left .25s ease;
-    z-index:100;            /* acima do conteúdo, abaixo do header */
+    position: fixed;
+    top: 58px;
+    left: -280px;
+    width: 280px;
+    height: calc(100vh - 58px);
+    overflow: auto;
+    transition: left .25s ease;
+    z-index: 100;
     box-shadow: 0 8px 24px rgba(0,0,0,.2);
   }
-  body.menu-aberto .menu-lateral{ left:0; }
+  body.menu-aberto .menu-lateral{ left: 0; }
+  .area-paginas{ padding-top: 1rem; }
 
-  .area-paginas{ padding-top:1rem; }
+  /* Dashboard em 1 coluna */
+  .painel-dashboard{
+    grid-template-columns: 1fr 380px;
+    grid-template-areas: "menu resumo";
+    gap: 1.75rem;
+  }
+
+  .grade-cartoes{ grid-template-columns: repeat(2, 1fr); }
+
+  /* Grades */
+  .lista-cartoes{ grid-template-columns: 1fr 1fr; }
+
+  /* Login */
+  .grade-login{ grid-template-columns: 1fr; }
+  .logo-grande{ text-align: center; }
 }
 
+/* ======== <=900px — ajustes de login ======== */
+@media (max-width: 900px){
+  /* Dashboard: empilha menu rápido e resumo */
+  .painel-dashboard{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "menu"
+      "resumo"; 
+    gap: 1.25rem;
+  }
 
-#pagina-dashboard .painel-dashboard{
-  max-width: 1200px;           
-  margin: 0 auto;
-  grid-template-columns: minmax(0,1fr) 380px;
+  /* Login */
+  #pagina-login .grade-login{
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 16px;
+  }
+  .logo-grande-imagem{
+    margin: 0 auto;
+    width: min(80vw, 400px);
+  }
+
+  /* KPIs empilhadas */
+  .grade-kpis{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "k1"
+      "k2"
+      "k3"
+      "k4"
+      "k5"
+      "k6"
+      "k7";
+  }
 }
+/* ======== mobile ======== */
+@media (max-width: 680px){
+  .grade-cartoes{ grid-template-columns: 1fr; }
+  .lista-cartoes{ grid-template-columns: 1fr; }
 
-
-@media (min-width: 1600px){
-  #pagina-dashboard .painel-dashboard{ max-width: 1320px; }
+  .linha-form{ grid-template-columns: 1fr; }
+  .grupo-telefone{ grid-template-columns: 100px 1fr 44px; }
 }
 
 
