@@ -423,15 +423,15 @@ a{
 
 .botao-filtro{
   padding:.55rem .9rem; /*atualizado*/
-  border-radius:10px;
+  border-radius:20px;
   border:1px solid #D3D8DF; /*atualizado*/
   background:#fff;
   color:#2c2c34; /*atualizado*/
-  box-shadow: 0 6px 16px rgba(0,0,0,.05); /*atualizado*/
+  box-shadow: 0 3px 6px rgba(0, 0, 0, .5) /*atualizado*/
 }
 
 .botao-filtro.ativo{
-  background: #ffffff;
+  background: #f0e4dc;
   color:#1c1c22;
   border-color:transparent;
   border: 2px solid #1c1c22;
@@ -462,19 +462,17 @@ a{
 }
 
 
-
-.kpi span{ 
-color: rgba(255,255,255,.9);
+.kpi span{
+  font-size:.9rem;
+  color:#fff;
+  color: rgba(255,255,255,.9);
 }
 
 .kpi strong{ 
 color: #ffffff; 
 }
 
-.kpi span{
-  font-size:.9rem;
-  color:#325561;
-}
+
 
 .kpi strong{
   font-size:1.15rem;
