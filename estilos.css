@@ -79,7 +79,7 @@ a{
   display:inline-flex;
   align-items:center;
   background:#fff;                 
-  padding:.45rem .75rem;
+  padding-left:15px;
   border-radius:0; 
   text-decoration:none;
   min-width:260px;
@@ -218,7 +218,7 @@ a{
 
 .pagina{
   display:none;
-  padding:1.25rem 1.25rem 5rem;
+  padding:1.25rem 1.25rem;
 }
 
 .pagina.visivel{
@@ -841,12 +841,11 @@ body.modo-login .area-paginas {
   padding: 0;
 }
 
-
 .btn-menu{
   display:none;
   border:0;
   background:transparent;
-  color:#fff;
+  color:#3b2c40;
   font-size:22px;
   padding:.25rem .5rem;
 }
