@@ -252,3 +252,29 @@ document.querySelectorAll('.botao-filtro').forEach(botao => {
 
   });
 });
+
+
+document.querySelectorAll('.subitem-menu').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.subitem-menu').forEach(b => b.classList.remove('ativo'));
+    btn.classList.add('ativo');
+  });
+});
+
+
+const menu = document.querySelector('.menu-lateral');
+
+menu.addEventListener('click', (e) => {
+  const btn = e.target.closest('.item-menu, .subitem-menu');
+  if (!btn || btn.disabled) return;
+
+  // limpa qualquer ativo anterior (item e subitem)
+  menu.querySelectorAll('.item-menu.ativo, .subitem-menu.ativo').forEach(el => {
+    el.classList.remove('ativo');
+    el.removeAttribute('aria-selected');
+  });
+
+  // marca o clicado
+  btn.classList.add('ativo');
+  btn.setAttribute('aria-selected', 'true');
+});
