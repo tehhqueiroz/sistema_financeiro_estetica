@@ -1,12 +1,17 @@
 :root{
-  --azul-escuro:#213a53;
+  --azul-escuro:#3b2c40;
   --azul-escuro-2:#35283B;
   --verde-claro:#8dc1b2;
   --verde-card:#E0B4AC;
   --azul-botao:#1e3650;
   --texto:#16222e;
-  --borda:#d8e3ea;
-  --fundo:#f6f8fa;
+  --borda:#aabdbc;
+  --fundo:linear-gradient(
+    to right,
+    #ffffff 40%,
+    #fff3f2 82%,
+    #d0cad1 100%
+  );
   --branco:#fff;
   --sombra:0 10px 24px rgba(0,0,0,.10);
   --raio:14px;
@@ -35,6 +40,8 @@ img,svg{
 .icone-usuario {
   width: 32px;      
   height: 32px;
+  margin-right: 10px;
+  margin-top: 2px;
 }
 
 button{
@@ -62,7 +69,11 @@ a{
 }
 
 .topo-site{
-  background: linear-gradient(270deg, #d9a59f 0%, #f6d9d7 100%);
+  background: linear-gradient(
+  90deg,
+  #f6d9d7 40%,
+  var(--azul-escuro-2) 100%
+);
   position:sticky;
   top:0;
   z-index:50;
@@ -107,6 +118,7 @@ a{
   padding:.25rem .5rem;
   min-width:260px;
   box-shadow: 0 6px 20px rgba(0,0,0,.06); /* atualizado */
+  border:1px solid var(--borda);
 }
 
 .busca-site input{
@@ -305,7 +317,7 @@ a{
 .campo input, .campo select{
   padding:.7rem .8rem;
   border-radius:10px;
-  border:1px solid rgba(59, 44, 64, 0.5);
+  border:1px solid #aabdbc;
   background:#fff;
 }
 
@@ -863,7 +875,7 @@ body.modo-login .area-paginas {
   gap: 48px;
   min-height: 100vh;
   padding: 32px;
-  background: #1f3851; 
+  background: #3b2c40; 
 }
 
 
