@@ -1,14 +1,14 @@
 :root{
   --azul-escuro:#213a53;
-  --azul-escuro-2:#1f3750;
+  --azul-escuro-2:#35283B;
   --verde-claro:#8dc1b2;
-  --verde-card:#80bbac;
+  --verde-card:#E0B4AC;
   --azul-botao:#1e3650;
   --texto:#16222e;
   --borda:#d8e3ea;
   --fundo:#f6f8fa;
   --branco:#fff;
-  --sombra:0 6px 20px rgba(0,0,0,.08);
+  --sombra:0 10px 24px rgba(0,0,0,.10);
   --raio:14px;
 }
 
@@ -62,7 +62,7 @@ a{
 }
 
 .topo-site{
-  background:var(--azul-escuro);
+  background: linear-gradient(270deg, #d9a59f 0%, #f6d9d7 100%);
   position:sticky;
   top:0;
   z-index:50;
@@ -72,7 +72,7 @@ a{
   display:flex;
   align-items:center;
   gap:1rem;
-  border-bottom:1px solid rgba(255,255,255,.12);
+  border-bottom:0;
 }
 
 .marca-site{
@@ -84,6 +84,7 @@ a{
   text-decoration:none;
   min-width:260px;
   height:100%;
+  background: transparent;
 }
 
 .logo-pequena{
@@ -105,6 +106,7 @@ a{
   border-radius:999px;
   padding:.25rem .5rem;
   min-width:260px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.06); /* atualizado */
 }
 
 .busca-site input{
@@ -134,7 +136,7 @@ a{
 
 .menu-lateral{
   background:var(--azul-escuro-2);
-  color:#dbe7f1;
+  color:#F1EAF1;
   padding:1rem .75rem;
 }
 
@@ -150,7 +152,7 @@ a{
   border-radius:10px;
   border:1px solid transparent;
   background:transparent;
-  color:#dbe7f1;
+  color:#F1EAF1;
   font-weight:600;
   cursor:pointer;
   font-weight: bold;
@@ -346,10 +348,17 @@ a{
 
 .grade-cartoes {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   max-width: 900px;          
   margin: 0 auto;           
+}
+
+@media (max-width: 1024px){
+  .grade-cartoes{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px){
+  .grade-cartoes{ grid-template-columns: 1fr; }
 }
 
 .cartao-atalho {
@@ -359,11 +368,11 @@ a{
   justify-content: center;
   background: var(--verde-card);
   border: 0;
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 1.75rem 1rem;     
   box-shadow: var(--sombra);
   font-weight: 800;
-  color: #17374a;
+  color: #2E2E3A;
   text-transform: uppercase;
   cursor: pointer;
   min-height: 140px;         
@@ -411,33 +420,53 @@ a{
 }
 
 .botao-filtro{
-  padding:.5rem .75rem;
+  padding:.55rem .9rem; /*atualizado*/
   border-radius:10px;
-  border:1px solid var(--borda);
+  border:1px solid #D3D8DF; /*atualizado*/
   background:#fff;
-  color:#1a2f45;
+  color:#2c2c34; /*atualizado*/
+  box-shadow: 0 6px 16px rgba(0,0,0,.05); /*atualizado*/
 }
 
 .botao-filtro.ativo{
-  background:var(--azul-botao);
-  color:#fff;
+  background: #ffffff;
+  color:#1c1c22;
   border-color:transparent;
+  border: 2px solid #1c1c22;
 }
 
 .grade-kpis{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:.6rem;
+  grid-template-areas:
+    "k1 k1"
+    "k2 k2"
+    "k3 k3"
+    "k4 k5"
+    "k6 k7";
 }
 
 .kpi{
-  background:var(--verde-card);
+  background: #83B7AB;
   border-radius:12px;
   padding:.8rem .9rem;
-  box-shadow:var(--sombra);
+  box-shadow: 0 8px 20px rgba(0,0,0,.10);
   display:flex;
   flex-direction:column;
   gap:.25rem;
+  border: 0;
+  color: #ffffff;
+}
+
+
+
+.kpi span{ 
+color: rgba(255,255,255,.9);
+}
+
+.kpi strong{ 
+color: #ffffff; 
 }
 
 .kpi span{
@@ -448,6 +477,32 @@ a{
 .kpi strong{
   font-size:1.15rem;
 }
+
+/* atualizado */
+.kpi:nth-child(1){
+  background: #7c9795;
+  grid-area: k1;
+}
+
+/* atualizado */
+
+.kpi:nth-child(2){
+  background: #df8282;
+  grid-area: k2;
+}
+
+/* atualizado */
+
+.kpi:nth-child(3){
+  background: #626aa2;
+  grid-area: k3;
+}
+
+.kpi:nth-child(4){ grid-area: k4; }
+.kpi:nth-child(5){ grid-area: k5; }
+.kpi:nth-child(6){ grid-area: k6; }
+.kpi:nth-child(7){ grid-area: k7; }
+
 
 /* Listagens genéricas */
 .barra-acoes{
@@ -586,8 +641,9 @@ a{
 .rodape-site{
   position:sticky;
   bottom:0;
-  background:var(--verde-card);
+  background:#7c9795;
   border-top:1px solid rgba(0,0,0,.08)
+  border-top: 0; /* atualizado */
 }
 
 .conteudo-rodape{
@@ -619,13 +675,12 @@ a{
   }
   .painel-dashboard{
     grid-template-columns:1fr;
+    gap: 1.75rem; /* atualizado */
   }
   .lista-cartoes
   grid-template-columns:1fr 1fr;
 }
-  .grade-cartoes{
-    grid-template-columns:1fr 1fr;
-  }
+
   .grade-login{
     grid-template-columns:1fr;
   }
