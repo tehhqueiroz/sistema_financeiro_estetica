@@ -1018,5 +1018,9 @@ body.menu-aberto .mask-menu{
   .grupo-telefone{ grid-template-columns: 100px 1fr 44px; }
 }
 
+#aba-cadastrar,
+#form-cadastrar{
+  display: none !important;
+}
 
 
