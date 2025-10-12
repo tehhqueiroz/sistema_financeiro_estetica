@@ -91,9 +91,9 @@
 		<img src="ic-reg-saida.svg" alt="registro de saida" aria-hidden="true" class="icone-submenu">
 		Registro de saída</button></li>
 
-            <li><button class="subitem-menu" data-pagina="pagina-transferencias">
+            <li><button class="subitem-menu" data-pagina="pagina-transf">
 		<img src="ic-transferencia.svg" alt="transferencia" aria-hidden="true" class="icone-submenu">
-		Transferência</button></li>
+		Registro de Transferencia</button></li>
           </ul>
         </li>
 
@@ -193,7 +193,7 @@
                 <strong>Saídas</strong>
               </button>
 
-              <button class="cartao-atalho" data-ir="pagina-transferencias" aria-label="Ir para Registro de transferências">
+              <button class="cartao-atalho" data-ir="pagina-transf" aria-label="Ir para Registro de transferencia">
                 <img src="icone-transferenciasdash.svg" alt="Transferencias" class="icone-imagem">
                 <strong>Transferências</strong>
               </button>
@@ -955,26 +955,28 @@
       </section>
 
       <!-- PÁGINA: REGISTRO DE TRANSFERÊNCIAS -->
-      <section id="pagina-transferencias" class="pagina" aria-labelledby="titulo-transf">
+       
+      <section id="pagina-transf" class="pagina" aria-labelledby="titulo-transf">
         <header class="cabecalho-pagina">
           <nav aria-label="Trilha de navegação" class="trilha">
             <ol>
               <li><a href="#" data-ir="pagina-dashboard">home</a></li>
               <li>movimentação</li>
-              <li>registro de transferências</li>
+              <li>registro de transferencias</li>
             </ol>
           </nav>
         </header>
 
-        <h2 id="titulo-transf">Registro de transferências</h2>
+        <h2 id="titulo-transf">Registro de transferencia</h2>
 
         <form class="formulario padrao">
           <div class="linha-form">
             <div class="campo">
               <label for="rt-data">Data</label>
               <div class="grupo-simples">
-                <input id="rt-data" type="text" value="23/04/2025" />
-                <input id="rt-data2" type="text" value="23/04/2025" />
+                
+                <input id="rt-data" type="date" value="23/04/2025" />
+                <input id="rt-data2" type="date" value="23/04/2025" />
                 
               </div>
             </div>
