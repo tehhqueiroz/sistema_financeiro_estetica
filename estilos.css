@@ -831,7 +831,23 @@ color: #ffffff;
   background:#fff;
   border:1px solid var(--borda);
   border-radius:12px;
+  width:100%;
+  border-collapse:collapse;
+  table-layout:fixed;       
+
 }
+
+.tabela-responsiva th,
+.tabela-responsiva td{
+  padding:.6rem .8rem;
+  min-width:0;               
+  white-space:normal;       
+  overflow-wrap:anywhere;    
+  word-break:normal;         
+  hyphens:auto;              
+  -webkit-hyphens:auto;      
+}
+
 
 .tabela{
   width:100%;
@@ -944,7 +960,6 @@ body.menu-aberto .mask-menu{
 }
 
 
-  
 
 
 
@@ -992,6 +1007,8 @@ body.menu-aberto .mask-menu{
   .logo-grande{ text-align: center; }
 }
 
+
+
 /* ======== <=900px — ajustes de login ======== */
 @media (max-width: 900px){
   /* Dashboard: empilha menu rápido e resumo */
@@ -1027,6 +1044,8 @@ body.menu-aberto .mask-menu{
       "k7";
   }
 }
+
+
 /* ======== mobile ======== */
 @media (max-width: 680px){
   .grade-cartoes{ grid-template-columns: 1fr; }
