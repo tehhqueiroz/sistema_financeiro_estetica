@@ -673,6 +673,23 @@ color: #ffffff;
   grid-column:span 1;
 }
 
+.periodo-data{
+  gap: 12px;
+  align-items:center;
+  overflow:hidden;
+  background: transparent;
+}
+
+.campo-data{
+ flex: 1;
+ min-width: 0;
+ border: 0;
+ outline:0;
+ background: #fff;
+ border:1px solid var(--borda);
+}
+
+
 .grupo-telefone{
   display:grid;
   grid-template-columns:110px 1fr;
