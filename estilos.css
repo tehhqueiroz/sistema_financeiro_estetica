@@ -675,7 +675,7 @@ color: #ffffff;
 
 .grupo-telefone{
   display:grid;
-  grid-template-columns:110px 1fr 44px;
+  grid-template-columns:110px 1fr;
   gap:.5rem;
   align-items:center;
 }
@@ -694,6 +694,7 @@ color: #ffffff;
   border:0;
   padding:.6rem .7rem;
 }
+
 
 .prefixo,.sufixo{
   padding:.45rem .6rem;
@@ -1015,7 +1016,7 @@ body.menu-aberto .mask-menu{
   .lista-cartoes{ grid-template-columns: 1fr; }
 
   .linha-form{ grid-template-columns: 1fr; }
-  .grupo-telefone{ grid-template-columns: 100px 1fr 44px; }
+  .grupo-telefone{ grid-template-columns: 100px 1fr; }
 }
 
 #aba-cadastrar,
