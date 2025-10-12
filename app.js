@@ -131,7 +131,7 @@ document.querySelectorAll('.submenu .subitem-menu').forEach(btn=>{
   if(txt==='sessões pendentes' || txt==='sess\u00F5es pendentes') btn.dataset.pagina = 'pagina-sessoes-pendentes';
   if(txt==='registro de entrada') btn.dataset.pagina = 'pagina-registro-entrada';
   if(txt==='registro de saída' || txt==='registro de sa\u00EDda') btn.dataset.pagina = 'pagina-registro-saida';
-  if(txt==='transferência' || txt==='transfer\u00EAncia') btn.dataset.pagina = 'pagina-transferencias';
+  if(txt==='registro de transferencia') btn.dataset.pagina = 'pagina-transf';
 });
 
 // Mapear itens do menu Extrato para novas páginas
@@ -139,11 +139,15 @@ document.querySelectorAll('.submenu .subitem-menu').forEach(btn=>{
   const t = btn.textContent.trim().toLowerCase();
   if(t==='extrato de entradas'){ btn.dataset.pagina='pagina-extrato-entradas'; btn.removeAttribute('disabled'); }
   if(t==='extrato de saídas' || t==='extrato de sa\u00EDdas'){ btn.dataset.pagina='pagina-extrato-saidas'; btn.removeAttribute('disabled'); }
-  if(t.includes('transfer') || t==='extrato das transferências' || t==='extrato  das transferências'){
+  if(t==='extrato de transferências'){
     btn.dataset.pagina='pagina-extrato-transferencias'; btn.removeAttribute('disabled');
   }
   if(t==='extrato geral'){ btn.dataset.pagina='pagina-extrato-geral'; btn.removeAttribute('disabled'); }
 });
+
+
+
+
 
 // Botões CSV dos extratos
 function baixarCSV(id, linhas){
@@ -205,12 +209,12 @@ document.getElementById('baixar-csv-geral')?.addEventListener('click', ()=>{
     // Movimentação
     if(t==='registro de entrada') habilitar('pagina-registro-entrada');
     if(t==='registro de saída' || t==='registro de sa\u00EDda') habilitar('pagina-registro-saida');
-    if(t==='transferência' || t==='transfer\u00EAncia') habilitar('pagina-transferencias');
+    if(t==='registro de transferencia' || t==='transfer\u00EAncia') habilitar('pagina-transf');
 
     // Extrato
     if(t==='extrato de entradas') habilitar('pagina-extrato-entradas');
     if(t==='extrato de saídas' || t==='extrato de sa\u00EDdas') habilitar('pagina-extrato-saidas');
-    if(t.includes('transfer') || t==='extrato das transferências' || t==='extrato  das transferências')
+    if(t==='extrato das transferências' || t==='extrato de transferências' || t==='extrato  das transferências')
       habilitar('pagina-extrato-transferencias');
     if(t==='extrato geral') habilitar('pagina-extrato-geral');
   });
