@@ -365,7 +365,6 @@
                   <option selected>+55</option>
                 </select>
                 <input id="cli-cel" type="tel" placeholder="12 34567-8910" />
-                <button type="button" class="botao-icone" aria-label="Validar número">✔</button>
               </div>
             </div>
             <div class="campo largura-media">
@@ -378,50 +377,42 @@
             </div>
           </div>
 
+
           <details class="bloco-avancado">
             <summary>+ Avançado (opcional)</summary>
+
             <div class="linha-form">
               <div class="campo largura-grande">
                 <label for="cli-cpf">CPF</label>
                 <input id="cli-cpf" type="text" placeholder="473.886.327-30" />
               </div>
-              <div class="campo largura-media">
-                <label for="cli-bairro">Bairro</label>
-                <input id="cli-bairro" type="text" placeholder="Cambuí" />
-              </div>
+
               <div class="campo largura-media">
                 <label for="cli-nasc">Data de nascimento</label>
                 <input id="cli-nasc" type="text" placeholder="dd/mm/aaaa" />
               </div>
-            </div>
 
-            <div class="linha-form">
-              <div class="campo largura-grande">
-                <label for="cli-rua">Rua do endereço</label>
-                <input id="cli-rua" type="text" placeholder="Rua Barreto Leme" />
-              </div>
-              <div class="campo largura-media">
-                <label for="cli-cidade">Cidade</label>
-                <input id="cli-cidade" type="text" placeholder="Campinas" />
-              </div>
               <div class="campo largura-media">
                 <label for="cli-email">E-mail</label>
                 <input id="cli-email" type="email" placeholder="faculdadeunisal@gmail.com" />
               </div>
-            </div>
 
+            </div>
+            
             <div class="linha-form">
+              <div class="campo largura-media">
+                <label for="cli-cep">CEP</label>
+                <input id="cli-cep" type="text" placeholder="11013-030" />
+              </div>
+
+              <div class="campo largura-grande">
+                <label for="cli-rua">Rua do endereço</label>
+                <input id="cli-rua" type="text" placeholder="Rua Barreto Leme" />
+              </div>
+
               <div class="campo largura-pequena">
                 <label for="cli-num">Número do endereço</label>
                 <input id="cli-num" type="text" placeholder="123" />
-              </div>
-              <div class="campo largura-media">
-                <label for="cli-uf">Estado</label>
-                <input id="cli-uf" type="text" placeholder="São Paulo" />
-              </div>
-              <div class="campo largura-media">
-                <label for="cli-rede">Rede social</label>
-                <input id="cli-rede" type="text" placeholder="@" />
               </div>
             </div>
 
@@ -430,10 +421,29 @@
                 <label for="cli-comp">Complemento do endereço</label>
                 <input id="cli-comp" type="text" placeholder="Conjunto 5, Edifício B" />
               </div>
+
               <div class="campo largura-media">
-                <label for="cli-cep">CEP</label>
-                <input id="cli-cep" type="text" placeholder="11013-030" />
+                <label for="cli-bairro">Bairro</label>
+                <input id="cli-bairro" type="text" placeholder="Cambuí" />
               </div>
+
+              <div class="campo largura-media">
+                <label for="cli-uf">Estado</label>
+                <input id="cli-uf" type="text" placeholder="São Paulo" />
+              </div>
+            </div>
+
+            <div class="linha-form">
+              <div class="campo largura-media">
+                <label for="cli-cidade">Cidade</label>
+                <input id="cli-cidade" type="text" placeholder="Campinas" />
+              </div>
+
+              <div class="campo largura-media">
+                <label for="cli-rede">Rede social</label>
+                <input id="cli-rede" type="text" placeholder="@" />
+              </div>
+
               <div class="campo largura-media">
                 <label for="cli-obs">Observações de saúde</label>
                 <input id="cli-obs" type="text" placeholder="Exemplos: Alergias, vacinação..." />
@@ -716,31 +726,23 @@
           <div class="linha-form">
             <div class="campo largura-grande">
               <label for="rp-servico">Nome do serviço</label>
-              <div class="grupo-simples">
-                <select id="rp-servico" aria-label="Nome do serviço">
+                <select class="grupo-simples" id="rp-servico" aria-label="Nome do serviço">
                   <option>Selecione</option>
                   <option>Modelo 1</option>
                   <option>Modelo 2</option>
                 </select>
-                <span class="sufixo" aria-hidden="true">🔎</span>
-              </div>
+      
             </div>
             <div class="campo largura-grande">
               <label for="rp-cliente">Cliente</label>
-              <div class="grupo-simples">
-                <input id="rp-cliente" type="text" placeholder="Informe o cliente" />
-                <span class="sufixo" aria-hidden="true">🔎</span>
-              </div>
+                <input  class="grupo-simples" id="rp-cliente" type="text" placeholder="Informe o cliente" />
             </div>
           </div>
 
           <div class="linha-form">
             <div class="campo largura-media">
               <label for="rp-data">Data</label>
-              <div class="grupo-simples">
-                <input id="rp-data" type="date" placeholder="dd/mm/aaaa" inputmode="numeric" />
-                <span class="sufixo" aria-hidden="true">📅</span>
-              </div>
+                <input class="grupo-simples" id="rp-data" type="date" placeholder="dd/mm/aaaa" inputmode="numeric" />
             </div>
           </div>
 
@@ -873,9 +875,7 @@
             <div class="campo">
               <label for="re-data">Data</label>
               <div class="grupo-simples">
-                <input id="re-data" type="date" placeholder="dd/mm/aaaa" />
-                <span class="sufixo" aria-hidden="true">📅</span>
-              </div>
+                <input id="re-data" type="date" placeholder="dd/mm/aaaa" />              </div>
             </div>
 
             <fieldset class="campo radios-pills">
@@ -921,9 +921,7 @@
             <div class="campo">
               <label for="rs-data">Data</label>
               <div class="grupo-simples">
-                <input id="rs-data" type="date" placeholder="dd/mm/aaaa" />
-                <span class="sufixo" aria-hidden="true">📅</span>
-              </div>
+                <input id="rs-data" type="date" placeholder="dd/mm/aaaa" />              </div>
             </div>
             <div class="campo">
               <label for="rs-valor">Valor pago</label>
@@ -976,7 +974,8 @@
               <label for="rt-data">Data</label>
               <div class="grupo-simples">
                 <input id="rt-data" type="text" value="23/04/2025" />
-                <span class="sufixo" aria-hidden="true">📅</span>
+                <input id="rt-data2" type="text" value="23/04/2025" />
+                
               </div>
             </div>
             <div class="campo">
@@ -1017,7 +1016,9 @@
           <label for="filtro-entradas" class="sr-apenas">Data</label>
           <div class="grupo-simples" style="max-width:340px">
             <input id="filtro-entradas" type="date" placeholder="dd/mm/aaaa - dd/mm/aaaa" inputmode="numeric" />
-            <span class="sufixo" aria-hidden="true">📅</span>
+          </div>
+          <div class="grupo-simples" style="max-width:340px">
+            <input id="filtro-entradas2" type="date" placeholder="dd/mm/aaaa - dd/mm/aaaa" inputmode="numeric" />
           </div>
           <button class="botao-primario" type="button">Filtrar</button>
         </form>
@@ -1078,7 +1079,9 @@
           <label for="filtro-saidas" class="sr-apenas">Data</label>
           <div class="grupo-simples" style="max-width:340px">
             <input id="filtro-saidas" type="date" placeholder="dd/mm/aaaa - dd/mm/aaaa" inputmode="numeric" />
-            <span class="sufixo" aria-hidden="true">📅</span>
+          </div>
+          <div class="grupo-simples" style="max-width:340px">
+            <input id="filtro-saidas2" type="date" placeholder="dd/mm/aaaa - dd/mm/aaaa" inputmode="numeric" />
           </div>
           <button class="botao-primario" type="button">Filtrar</button>
         </form>
@@ -1136,9 +1139,13 @@
         <form class="barra-acoes" onsubmit="return false">
           <label for="filtro-transf" class="sr-apenas">Data</label>
           <div class="grupo-simples" style="max-width:340px">
-            <input id="filtro-transf" type="date" placeholder="dd/mm/aaaa - dd/mm/aaaa" inputmode="numeric" />
-            <span class="sufixo" aria-hidden="true">📅</span>
+            <input id="filtro-transf" type="date" placeholder="dd/mm/aaaa" inputmode="numeric" />
           </div>
+                    
+          <div class="grupo-simples" style="max-width:340px">
+            <input id="filtro-transf2" type="date" placeholder="dd/mm/aaaa" inputmode="numeric" />
+          </div>
+
           <button class="botao-primario" type="button">Filtrar</button>
         </form>
 
