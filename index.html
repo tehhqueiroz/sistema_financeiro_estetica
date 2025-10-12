@@ -973,12 +973,9 @@
           <div class="linha-form">
             <div class="campo">
               <label for="rt-data">Data</label>
-              <div class="grupo-simples">
-                
-                <input id="rt-data" type="date" value="23/04/2025" />
-                <input id="rt-data2" type="date" value="23/04/2025" />
-                
-              </div>
+                <div class="grupo-simples">
+                  <input id="re-data3" type="date" placeholder="dd/mm/aaaa" />             
+                </div>
             </div>
             <div class="campo">
               <label for="rt-valor">Valor retirado</label>
@@ -1016,12 +1013,10 @@
 
         <form class="barra-acoes" onsubmit="return false">
           <label for="filtro-entradas" class="sr-apenas">Data</label>
-          <div class="grupo-simples" style="max-width:340px">
-            <input id="filtro-entradas" type="date" placeholder="dd/mm/aaaa - dd/mm/aaaa" inputmode="numeric" />
-          </div>
-          <div class="grupo-simples" style="max-width:340px">
-            <input id="filtro-entradas2" type="date" placeholder="dd/mm/aaaa - dd/mm/aaaa" inputmode="numeric" />
-          </div>
+              <div class="periodo-data">
+                  <input id="rt-data" class="campo-data" type="date" value="23/04/2025" />
+                  <input id="rt-data2" class="campo-data" type="date" value="23/04/2025" />
+              </div><br>
           <button class="botao-primario" type="button">Filtrar</button>
         </form>
 
@@ -1079,12 +1074,10 @@
 
         <form class="barra-acoes" onsubmit="return false">
           <label for="filtro-saidas" class="sr-apenas">Data</label>
-          <div class="grupo-simples" style="max-width:340px">
-            <input id="filtro-saidas" type="date" placeholder="dd/mm/aaaa - dd/mm/aaaa" inputmode="numeric" />
-          </div>
-          <div class="grupo-simples" style="max-width:340px">
-            <input id="filtro-saidas2" type="date" placeholder="dd/mm/aaaa - dd/mm/aaaa" inputmode="numeric" />
-          </div>
+              <div class="periodo-data">
+                  <input id="rt-saida1" class="campo-data" type="date" value="23/04/2025" />
+                  <input id="rt-saida2" class="campo-data" type="date" value="23/04/2025" />
+              </div><br>
           <button class="botao-primario" type="button">Filtrar</button>
         </form>
 
@@ -1140,13 +1133,10 @@
 
         <form class="barra-acoes" onsubmit="return false">
           <label for="filtro-transf" class="sr-apenas">Data</label>
-          <div class="grupo-simples" style="max-width:340px">
-            <input id="filtro-transf" type="date" placeholder="dd/mm/aaaa" inputmode="numeric" />
-          </div>
-                    
-          <div class="grupo-simples" style="max-width:340px">
-            <input id="filtro-transf2" type="date" placeholder="dd/mm/aaaa" inputmode="numeric" />
-          </div>
+              <div class="periodo-data">
+                  <input id="rt-transf11" class="campo-data" type="date" value="23/04/2025" />
+                  <input id="rt-transf22" class="campo-data" type="date" value="23/04/2025" />
+              </div><br>
 
           <button class="botao-primario" type="button">Filtrar</button>
         </form>
