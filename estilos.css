@@ -225,7 +225,9 @@ a{
 /* Páginas */
 .area-paginas{
   background:var(--fundo);
-  padding:0;min-height:100%;
+  padding:0;
+  min-height:100%;
+
 }
 
 .pagina{
@@ -674,6 +676,8 @@ color: #ffffff;
 }
 
 .periodo-data{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(160px, 1fr));
   gap: 12px;
   align-items:center;
   overflow:hidden;
@@ -826,25 +830,16 @@ color: #ffffff;
 }
 
 /* Tabelas */
-.tabela-responsiva{
-  overflow:auto;
-  background:#fff;
-  border:1px solid var(--borda);
-  border-radius:12px;
-  width:100%;
-  border-collapse:collapse;
-  table-layout:fixed;       
 
-}
+
 
 .tabela-responsiva th,
 .tabela-responsiva td{
   padding:.6rem .8rem;
-  min-width:0;               
-  white-space:normal;       
-  overflow-wrap:anywhere;    
+          
+  white-space:normal;          
   word-break:normal;         
-  hyphens:auto;              
+           
   -webkit-hyphens:auto;      
 }
 
@@ -876,6 +871,16 @@ color: #ffffff;
   text-align:right;
 }
 
+.tabela-responsiva{
+  overflow:auto;
+  background:#fff;
+  border:1px solid var(--borda);
+  border-radius:12px;
+  width:100%;
+  border-collapse:collapse;
+  table-layout:fixed;       
+
+}
 
 /* Esconder topo e menu no login */
 body.modo-login .topo-site,
@@ -1053,11 +1058,40 @@ body.menu-aberto .mask-menu{
 
   .linha-form{ grid-template-columns: 1fr; }
   .grupo-telefone{ grid-template-columns: 100px 1fr; }
+
+  .marca-site{
+  padding-left:0;
+  min-width:100px;
+}
+  .busca-site{
+    padding: 0;
+    min-width: 0;
+  }
+ .botao-icone{
+  padding: 0;
+ }
+
+ .tabela-scroll{
+  width: 100%;
+  overflow-x: auto;              /* rolagem horizontal quando precisar */
+  overflow-y: auto;              /* vertical se precisar */
+  max-height: 600px;
+  max-width: 370px;             /* define para ativar rolagem vertical (opcional) */
+  -webkit-overflow-scrolling: touch; /* deslize suave no iOS */
+
+}
+
+.periodo-data{ grid-template-columns: 1fr; }
+
+
+
 }
 
 #aba-cadastrar,
 #form-cadastrar{
   display: none !important;
 }
+
+
 
 
