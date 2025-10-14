@@ -154,7 +154,7 @@ a{
 .menu-lateral{
   background:var(--azul-escuro-2);
   color:#F1EAF1;
-  padding:1rem .75rem;
+  padding:0.5rem 1rem 0rem .75rem;
 }
 
 .lista-menu{
