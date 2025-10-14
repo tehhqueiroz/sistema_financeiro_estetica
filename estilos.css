@@ -350,9 +350,9 @@ a{
 /* Dashboard */
 .painel-dashboard{
   display: grid;
-  grid-template-columns: minmax(0,1fr) 380px; /* coluna de conteúdo pode encolher */
+  grid-template-columns: minmax(420px, 1fr) clamp(260px, 28vw, 380px);
   grid-template-areas: "menu resumo";
-  gap: 5rem;
+  gap: 2rem;
   align-items: start;
   max-width: 1200px;
   margin: 4rem;
@@ -369,7 +369,7 @@ a{
 
 .grade-cartoes {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr)); 
   gap: 1rem;
   max-width: 900px;          
   margin: 0 auto;           
