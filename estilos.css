@@ -758,6 +758,7 @@ color: #ffffff;
   gap:.75rem;
   justify-content:flex-end;
   margin-top:1rem;
+  margin-bottom: 1rem;
 }
 
 .botao-secundario{
@@ -1076,9 +1077,16 @@ body.menu-aberto .mask-menu{
     min-width: 0;
   }
  .botao-icone{
-  padding: 0;
+  padding: 0.2rem;
  }
 
+ .logo-pequena{
+  height: 38px;
+ }
+
+ .barra-superior{
+  gap: 0;
+ }
  .tabela-scroll{
   width: 100%;
   overflow-x: auto;              /* rolagem horizontal quando precisar */
