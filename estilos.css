@@ -21,6 +21,9 @@
   box-sizing:border-box;
 }
 
+html, body { overflow-x: hidden; }           /* evita a margem escura global */
+.container-app, .area-paginas { overflow-x: clip; }  /* garante que o app não expanda lateralmente */
+
 html,body{
   height:100%;
 }
@@ -30,6 +33,8 @@ body{
   color:var(--texto);
   font: 16px/1.4 "Inter",system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
   background:var(--azul-escuro);
+  min-height: 100dvh;
+  flex-direction: column;
 }
 
 img,svg{
@@ -143,7 +148,7 @@ a{
 .container-app{
   display:grid;
   grid-template-columns:260px 1fr;
-  min-height:calc(100vh - 58px);
+  min-height:calc(97vh - 58px);
 }
 
 .menu-lateral{
@@ -996,7 +1001,7 @@ body.menu-aberto .mask-menu{
     box-shadow: 0 8px 24px rgba(0,0,0,.2);
   }
   body.menu-aberto .menu-lateral{ left: 0; }
-  .area-paginas{ padding-top: 1rem; }
+  
 
   /* Dashboard em 1 coluna */
   .painel-dashboard{
@@ -1111,9 +1116,6 @@ body.menu-aberto .mask-menu{
   max-width: 350px;
   }
 }
-
-
-
 
 #aba-cadastrar,
 #form-cadastrar{
