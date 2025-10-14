@@ -609,6 +609,11 @@ color: #ffffff;
 
 /* Listagens genéricas */
 .barra-acoes{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: .75rem;
+  row-gap: .6rem;
   margin:1rem 0;
 }
 
@@ -1060,7 +1065,7 @@ body.menu-aberto .mask-menu{
   .marca-site{
   padding-left:0;
   min-width:100px;
-}
+  }
   .busca-site{
     padding: 0;
     min-width: 0;
@@ -1073,23 +1078,47 @@ body.menu-aberto .mask-menu{
   width: 100%;
   overflow-x: auto;              /* rolagem horizontal quando precisar */
   overflow-y: auto;              /* vertical se precisar */
-  max-height: 600px;
-  max-width: 370px;             /* define para ativar rolagem vertical (opcional) */
-  -webkit-overflow-scrolling: touch; /* deslize suave no iOS */
+  max-height: 780px;
+  max-width: 650px;
+  }
+  .periodo-data{ grid-template-columns: 1fr; }
 
 }
 
-.periodo-data{ grid-template-columns: 1fr; }
-
-
-
+@media (max-width: 650px){
+ .tabela-scroll{
+  max-width: 550px;
+  }
 }
+
+@media (max-width: 600px){
+ .tabela-scroll{
+  max-width: 500px;
+  }
+}
+@media (max-width: 550px){
+ .tabela-scroll{
+  max-width: 450px;
+  }
+}
+@media (max-width: 500px){
+ .tabela-scroll{
+  max-width: 400px;
+  }
+}
+@media (max-width: 450px){
+ .tabela-scroll{
+  max-width: 350px;
+  }
+}
+
+
+
 
 #aba-cadastrar,
 #form-cadastrar{
   display: none !important;
 }
-
 
 
 
