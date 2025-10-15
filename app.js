@@ -293,9 +293,9 @@ menu.addEventListener('click', (e) => {
   function abrir() {
     menu.hidden = false;
     btn.setAttribute('aria-expanded', 'true');
-    // foco no primeiro item
     sair.focus();
   }
+
   function fechar() {
     if (menu.hidden) return;
     menu.hidden = true;
@@ -303,19 +303,20 @@ menu.addEventListener('click', (e) => {
     btn.focus();
   }
 
+  // alternar dropdown
   btn.addEventListener('click', (e) => {
     e.stopPropagation();
     menu.hidden ? abrir() : fechar();
   });
 
-  // clicar fora
+  // fechar ao clicar fora
   document.addEventListener('click', (e) => {
     if (!menu.hidden && !menu.contains(e.target) && !btn.contains(e.target)) {
       fechar();
     }
   });
 
-  // tecla ESC
+  // fechar com ESC
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') fechar();
   });
@@ -323,19 +324,26 @@ menu.addEventListener('click', (e) => {
   // ação "Sair"
   sair.addEventListener('click', () => {
     fechar();
-    // Se você já usa navegação por [data-ir], isso chama o mesmo fluxo:
-    const alvo = sair.getAttribute('data-ir');
-    // Exemplo genérico para SPA (adapte ao seu handler):
-    const sec = document.getElementById(alvo);
-    if (sec) {
-      // Esconde todas as páginas e mostra o login
-      document.querySelectorAll('[id^="pagina-"]').forEach(el => el.hidden = true);
-      sec.hidden = false;
-      // modo login (se você usa)
-      document.body.classList.add('modo-login');
-    } else {
-      // fallback: redireciona
-      // location.href = 'login.html';
+
+    // esconde todas as páginas
+    document.querySelectorAll('[id^="pagina-"]').forEach(el => el.hidden = true);
+
+    // mostra o login
+    const paginaLogin = document.getElementById('pagina-login');
+    if (paginaLogin) {
+      paginaLogin.hidden = false;
     }
+
+    // adiciona modo login, se usar essa classe
+    document.body.classList.add('modo-login');
+
+    // 🔒 limpa campos de login e senha
+    const emailInput = document.getElementById('login-email');
+    const senhaInput = document.getElementById('login-senha');
+    if (emailInput) emailInput.value = '';
+    if (senhaInput) senhaInput.value = '';
+
+    // opcional: foca o campo de e-mail imediatamente
+    if (emailInput) emailInput.focus();
   });
 })();
