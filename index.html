@@ -11,26 +11,39 @@
   <a class="pular-conteudo" href="#conteudo-principal">Pular para o conteúdo</a>
 
   <!-- CABEÇALHO -->
-  <header class="topo-site" role="banner" aria-label="Cabeçalho do sistema">
+<header class="topo-site" role="banner" aria-label="Cabeçalho do sistema">
   <div class="barra-superior">
     <button class="btn-menu" aria-label="Abrir menu" aria-controls="menu-lateral" aria-expanded="false">☰</button>
-	<a class="marca-site" href="#" data-ir="pagina-dashboard" aria-label="Esteticash — início">
- 		 <img src="logo-esteticash.png" alt="Esteticash" class="logo-pequena">
-	</a>
 
-      <form class="busca-site" role="search" aria-label="Pesquisar">
-        <label for="campo-pesquisa" class="sr-apenas">Buscar funcionalidade</label>
-        <input id="campo-pesquisa" name="q" type="search" placeholder="Buscar funcionalidade" />
-        <button type="submit" class="botao-icone" aria-label="Buscar">
-          <img src="icone-lupa.svg" alt="Presença" class="icone-imagem-pequeno">
+    <a class="marca-site" href="#" data-ir="pagina-dashboard" aria-label="Esteticash — início">
+      <img src="logo-esteticash.png" alt="Esteticash" class="logo-pequena">
+    </a>
+
+    <form class="busca-site" role="search" aria-label="Pesquisar">
+      <label for="campo-pesquisa" class="sr-apenas">Buscar funcionalidade</label>
+      <input id="campo-pesquisa" name="q" type="search" placeholder="Buscar funcionalidade" />
+      <button type="submit" class="botao-icone" aria-label="Buscar">
+        <img src="icone-lupa.svg" alt="Presença" class="icone-imagem-pequeno">
+      </button>
+    </form>
+    <!-- dropdown do sair -->
+    <div class="perfil-wrap">
+      <button id="btnPerfil" class="perfil-usuario botao-icone"
+              aria-label="Perfil do usuário"
+              aria-haspopup="menu"
+              aria-expanded="false"
+              aria-controls="menuUsuario">
+        <img src="usuario.svg" alt="Perfil do usuário" class="icone-usuario">
+      </button>
+
+      <div id="menuUsuario" class="dropdown-usuario" role="menu" hidden>
+        <button class="item-menu-usuario" role="menuitem" data-ir="pagina-login">
+          Sair
         </button>
-      </form>
-
-	<button class="perfil-usuario botao-icone" aria-label="Perfil do usuário">
-  		<img src="usuario.svg" alt="Perfil do usuário" class="icone-usuario">
-	</button>
+      </div>
     </div>
-  </header>
+  </div>
+</header>
 
   <!-- máscara do drawer -->
 <div class="mask-menu" hidden></div>
