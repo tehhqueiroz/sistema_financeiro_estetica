@@ -282,3 +282,60 @@ menu.addEventListener('click', (e) => {
   btn.classList.add('ativo');
   btn.setAttribute('aria-selected', 'true');
 });
+
+
+//dropdown do sair
+(() => {
+  const btn   = document.getElementById('btnPerfil');
+  const menu  = document.getElementById('menuUsuario');
+  const sair  = menu.querySelector('.item-menu-usuario');
+
+  function abrir() {
+    menu.hidden = false;
+    btn.setAttribute('aria-expanded', 'true');
+    // foco no primeiro item
+    sair.focus();
+  }
+  function fechar() {
+    if (menu.hidden) return;
+    menu.hidden = true;
+    btn.setAttribute('aria-expanded', 'false');
+    btn.focus();
+  }
+
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    menu.hidden ? abrir() : fechar();
+  });
+
+  // clicar fora
+  document.addEventListener('click', (e) => {
+    if (!menu.hidden && !menu.contains(e.target) && !btn.contains(e.target)) {
+      fechar();
+    }
+  });
+
+  // tecla ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') fechar();
+  });
+
+  // ação "Sair"
+  sair.addEventListener('click', () => {
+    fechar();
+    // Se você já usa navegação por [data-ir], isso chama o mesmo fluxo:
+    const alvo = sair.getAttribute('data-ir');
+    // Exemplo genérico para SPA (adapte ao seu handler):
+    const sec = document.getElementById(alvo);
+    if (sec) {
+      // Esconde todas as páginas e mostra o login
+      document.querySelectorAll('[id^="pagina-"]').forEach(el => el.hidden = true);
+      sec.hidden = false;
+      // modo login (se você usa)
+      document.body.classList.add('modo-login');
+    } else {
+      // fallback: redireciona
+      // location.href = 'login.html';
+    }
+  });
+})();
