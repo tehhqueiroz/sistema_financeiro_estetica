@@ -55,7 +55,7 @@ button{
 }
 
 a{
-  color:inherit
+  color:inherit;
 }
 
 .pular-conteudo{
@@ -325,7 +325,23 @@ a{
   border-radius:10px;
   border:1px solid #aabdbc;
   background:#fff;
+  color: #0a2a36;
 }
+
+
+
+.opcoes-select{
+  color: #0a2a36;
+}
+
+input::placeholder{
+  color: #5d7082;
+}
+
+select::placeholder{
+  color: #5d7082;
+}
+
 
 .botao-primario{
   background:var(--azul-botao);
@@ -360,7 +376,7 @@ a{
   gap: 2rem;
   align-items: start;
   max-width: 1200px;
-  margin: 4rem;
+  margin: 0;
 }
 
 .menu-rapido .titulo-caixa{
@@ -548,7 +564,7 @@ a{
 .grade-kpis{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:.6rem;
+  gap:.3rem;
   grid-template-areas:
     "k1 k1"
     "k2 k2"
@@ -700,8 +716,9 @@ color: #ffffff;
  outline:0;
  background: #fff;
  border:1px solid var(--borda);
+ color: #0a2a36;
+ margin: 2px;
 }
-
 
 .grupo-telefone{
   display:grid;
@@ -726,10 +743,7 @@ color: #ffffff;
 }
 
 
-.prefixo,.sufixo{
-  padding:.45rem .6rem;
-  color:#5d7082;
-}
+
 
 .bloco-avancado{
   margin-top:.5rem;
@@ -975,8 +989,6 @@ body.menu-aberto .mask-menu{
 
 
 
-
-
 /* ======== MUITO LARGO (>=1600) ======== */
 @media (min-width: 1600px){
   #pagina-dashboard .painel-dashboard{ max-width: 1320px;}
@@ -1057,12 +1069,16 @@ body.menu-aberto .mask-menu{
       "k6"
       "k7";
   }
+
+  .pagina{
+    margin-bottom: 6px;
+  }
 }
 
 
 /* ======== mobile ======== */
 @media (max-width: 680px){
-  .grade-cartoes{ grid-template-columns: 1fr; }
+  .grade-cartoes{ grid-template-columns: repeat(auto-fit, 300px); justify-content: center;}
   .lista-cartoes{ grid-template-columns: 1fr; }
 
   .linha-form{ grid-template-columns: 1fr; }
