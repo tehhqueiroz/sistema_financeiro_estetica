@@ -218,9 +218,8 @@
           <aside class="painel-resumo" aria-label="Resumo financeiro">
             <form class="filtros-resumo" aria-label="Período">
               <label for="campo-periodo" class="sr-apenas">Período</label>
-              <input id="campo-periodo" type="date" inputmode="numeric" placeholder="dd/mm/aaaa - dd/mm/aaaa" aria-describedby="ajuda-periodo"/>
-              <span id="ajuda-periodo" class="sr-apenas">Use o formato dia, mês e ano</span>
-              <div class="grupo-botoes">
+              <input class="campo-data" type="date" inputmode="numeric" placeholder="dd/mm/aaaa" aria-describedby="ajuda-periodo"/>
+              <input class="campo-data" type="date" inputmode="numeric" placeholder="dd/mm/aaaa" aria-describedby="ajuda-periodo"/>              <div class="grupo-botoes">
                 <button type="button" class="botao-filtro" data-range="mes-anterior">Mês anterior</button>
                 <button type="button" class="botao-filtro ativo" data-range="mes-atual">Mês atual</button>
                 <button type="button" class="botao-filtro" data-range="7d">7 dias</button>
@@ -364,8 +363,8 @@
               <label for="cli-cel">Celular para contato</label>
               <div class="grupo-telefone">
                 <select aria-label="DDI">
-                  <option>+123</option>
-                  <option selected>+55</option>
+                  <option class="opcoes-select">+123</option>
+                  <option selected class="opcoes-select">+55</option>
                 </select>
                 <input id="cli-cel" type="tel" placeholder="12 34567-8910" />
               </div>
@@ -374,8 +373,8 @@
               <label for="cli-tipo">Tipo de pessoa (PF / PJ)</label>
               <select id="cli-tipo">
                 <option>Selecione</option>
-                <option>Pessoa Física</option>
-                <option>Pessoa Jurídica</option>
+                <option class="opcoes-select">Pessoa Física</option>
+                <option class="opcoes-select">Pessoa Jurídica</option>
               </select>
             </div>
           </div>
@@ -553,10 +552,9 @@
             </div>
             <div class="campo largura-media">
               <label for="srv-valor">Valor do serviço</label>
-              <div class="grupo-simples">
-                <span class="prefixo">R$</span>
-                <input id="srv-valor" type="text" placeholder=" " aria-label="Valor do serviço" />
-              </div>
+
+                <input id="srv-valor" type="text" placeholder="R$" aria-label="Valor do serviço" />
+
             </div>
             <div class="campo largura-media">
               <label for="srv-tempo">Tempo do serviço (min)</label>
@@ -569,14 +567,11 @@
             <div class="linha-desconto">
               <div class="campo">
                 <label for="desc-qtd-1">Qtd de sessões</label>
-                <input id="desc-qtd-1" type="text" placeholder="00" />
+                <input id="desc-qtd-1" type="number" placeholder="00" />
               </div>
               <div class="campo">
                 <label for="desc-pct-1">Desconto</label>
-                <div class="grupo-simples">
-                  <input id="desc-pct-1" type="text" placeholder=" " aria-label="Percentual de desconto"/>
-                  <span class="sufixo">%</span>
-                </div>
+                  <input id="desc-pct-1" type="text" placeholder="%" aria-label="Percentual de desconto"/>
               </div>
             </div>
             <button type="button" class="link-menor" id="adicionar-desconto">+ adicionar</button>
@@ -633,17 +628,13 @@
           <div class="linha-form bloco-juros oculto" aria-hidden="true">
             <div class="campo">
               <label for="fp-percentual">% de juros</label>
-              <div class="grupo-simples">
+
                 <input id="fp-percentual" type="text" placeholder="0,00" inputmode="decimal" aria-label="Percentual de juros" />
-                <span class="sufixo">%</span>
-              </div>
+
             </div>
             <div class="campo">
               <label for="fp-custo">Custo por transação</label>
-              <div class="grupo-simples">
-                <span class="prefixo">R$</span>
-                <input id="fp-custo" type="text" placeholder=" " inputmode="decimal" aria-label="Custo por transação"/>
-              </div>
+                <input id="fp-custo" type="text" placeholder="R$" inputmode="decimal" aria-label="Custo por transação"/>
             </div>
           </div>
 
@@ -728,8 +719,8 @@
               <label for="rp-servico">Nome do serviço</label>
                 <select class="grupo-simples" id="rp-servico" aria-label="Nome do serviço">
                   <option>Selecione</option>
-                  <option>Modelo 1</option>
-                  <option>Modelo 2</option>
+                  <option class="opcoes-select">Modelo 1</option>
+                  <option class="opcoes-select">Modelo 2</option>
                 </select>
       
             </div>
@@ -829,15 +820,15 @@
               <label for="re-servico">Nome do serviço</label>
               <select id="re-servico">
                 <option>Selecione</option>
-                <option>Massagem Terapêutica</option>
+                <option class="opcoes-select">Massagem Terapêutica</option>
               </select>
             </div>
             <div class="campo">
               <label for="re-cliente">Cliente</label>
-              <div class="grupo-simples">
+              
                 <input id="re-cliente" type="text" placeholder="Informe o cliente" />
-                <span class="sufixo" aria-hidden="true">🔎</span>
-              </div>
+
+              
             </div>
           </div>
 
@@ -846,23 +837,20 @@
               <label for="re-forma">Forma de pagamento</label>
               <select id="re-forma">
                 <option>Selecione</option>
-                <option>Pix</option>
-                <option>Débito</option>
+                <option class="opcoes-select">Pix</option>
+                <option class="opcoes-select">Débito</option>
               </select>
             </div>
             <div class="campo">
               <label for="re-qtd">Quantidade de sessões</label>
               <select id="re-qtd">
                 <option>Selecione</option>
-                <option>1</option><option>3</option><option>5</option>
+                <option class="opcoes-select">1</option><option class="opcoes-select">3</option><option class="opcoes-select">5</option>
               </select>
             </div>
             <div class="campo">
               <label for="re-desc">Desconto</label>
-              <div class="grupo-simples">
-                <span class="prefixo">R$</span>
-                <input id="re-desc" type="text" placeholder=" " />
-              </div>
+                <input id="re-desc" type="text" placeholder="%" />
             </div>
             <div class="campo">
               <label for="re-total">Valor total</label>
@@ -873,9 +861,7 @@
           <div class="linha-form">
             <div class="campo">
               <label for="re-data">Data</label>
-              <div class="grupo-simples">
                 <input id="re-data" type="date" placeholder="dd/mm/aaaa" />              </div>
-            </div>
 
             <fieldset class="campo radios-pills">
               <legend>Nota fiscal emitida?</legend>
@@ -918,22 +904,22 @@
           <div class="linha-form">
             <div class="campo">
               <label for="rs-data">Data</label>
-              <div class="grupo-simples">
+
                 <input id="rs-data" type="date" placeholder="dd/mm/aaaa" />              </div>
-            </div>
+
             <div class="campo">
               <label for="rs-valor">Valor pago</label>
-              <div class="grupo-simples">
-                <span class="prefixo">R$</span>
+
+
                 <input id="rs-valor" type="text" placeholder=" " />
-              </div>
+
             </div>
             <div class="campo">
               <label for="rs-forma">Forma de pagamento utilizada (opcional)</label>
               <select id="rs-forma">
                 <option>Selecione</option>
-                <option>Pix</option>
-                <option>Cartão</option>
+                <option class="opcoes-select">Pix</option>
+                <option class="opcoes-select">Cartão</option>
               </select>
             </div>
           </div>
@@ -970,9 +956,9 @@
           <div class="linha-form">
             <div class="campo">
               <label for="rt-data">Data</label>
-                <div class="grupo-simples">
+
                   <input id="re-data3" type="date" placeholder="dd/mm/aaaa" />             
-                </div>
+
             </div>
             <div class="campo">
               <label for="rt-valor">Valor retirado</label>
