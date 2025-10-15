@@ -141,6 +141,8 @@ a{
   color:#fff;
   font-size:1.1rem;
 }
+
+
 .perfil-usuario{
   margin-left:.5rem;
 }
@@ -992,8 +994,8 @@ body.menu-aberto .mask-menu{
 
 .dropdown-usuario{
   position: absolute;
-  right: 0;
-  top: calc(100% + 8px);
+  right: 8px;
+  top: 90%;
   min-width: 160px;
   background: #fff;
   border: 1px solid var(--borda);
@@ -1002,6 +1004,8 @@ body.menu-aberto .mask-menu{
   padding: .4rem;
   z-index: 1200; /* acima do header/tabela */
 }
+
+
 
 .dropdown-usuario .item-menu-usuario{
   width: 100%;
@@ -1016,15 +1020,12 @@ body.menu-aberto .mask-menu{
 }
 
 .dropdown-usuario .item-menu-usuario:hover{
-  background: rgba(0,0,0,.06);
+  background: rgba(160, 134, 168, 0.5);
 }
+
 
 /* garante empilhamento do topo e evita cortes */
 .topo-site{ z-index: 1100; }
-
-
-
-
 
 
 
@@ -1187,6 +1188,5 @@ body.menu-aberto .mask-menu{
 #form-cadastrar{
   display: none !important;
 }
-
 
 
