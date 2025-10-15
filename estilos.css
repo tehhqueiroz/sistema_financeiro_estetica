@@ -987,6 +987,48 @@ body.menu-aberto .mask-menu{
   pointer-events:auto;
 }
 
+/* dropdown do sair */
+.perfil-wrap { position: relative; }
+
+.dropdown-usuario{
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  min-width: 160px;
+  background: #fff;
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  box-shadow: var(--sombra);
+  padding: .4rem;
+  z-index: 1200; /* acima do header/tabela */
+}
+
+.dropdown-usuario .item-menu-usuario{
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  padding: .5rem .6rem;
+  border-radius: 8px;
+  font-weight: 600;
+  color: var(--azul-botao);
+  cursor: pointer;
+}
+
+.dropdown-usuario .item-menu-usuario:hover{
+  background: rgba(0,0,0,.06);
+}
+
+/* garante empilhamento do topo e evita cortes */
+.topo-site{ z-index: 1100; }
+
+
+
+
+
+
+
+
 
 
 /* ======== MUITO LARGO (>=1600) ======== */
