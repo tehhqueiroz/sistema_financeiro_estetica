@@ -58,7 +58,7 @@ a{
   color:inherit;
 }
 
-.pular-conteudo{
+/*.pular-conteudo{
   position:absolute;
   left:-9999px;
   top:-9999px;
@@ -71,7 +71,7 @@ a{
 
 .pular-conteudo:focus{
   left:1rem;top:1rem;z-index:1000;
-}
+}*/
 
 .topo-site{
   background: linear-gradient(
@@ -249,14 +249,15 @@ a{
   margin-bottom:.5rem;
 }
 
-.trilha ol{display:flex;
-           gap:.5rem;
-           list-style:none;
-           padding:0;
-           margin:0;
-           color:#6b7e90;
-           font-size:.95rem
-          }
+.trilha ol{
+  display:flex;
+  gap:.5rem;
+  list-style:none;
+  padding:0;
+  margin:0;
+  color:#6b7e90;
+  font-size:.95rem
+}
 
 .trilha a{
   text-decoration:underline;
@@ -922,6 +923,8 @@ body.modo-login .container-app {
 body.modo-login .area-paginas {
   max-width: 1200px;  
   margin: 0 auto;
+  background: transparent;
+  padding: 0;
 }
 
 
@@ -947,16 +950,6 @@ body.modo-login .container-app {
   grid-template-columns: 1fr !important; 
 }
 
-/* Escondendo o topo e menu no login */
-body.modo-login .topo-site,
-body.modo-login .menu-lateral {
-  display: none;
-}
-
-body.modo-login .area-paginas {
-  background: transparent;
-  padding: 0;
-}
 
 .btn-menu{
   display:none;
@@ -1029,9 +1022,6 @@ body.menu-aberto .mask-menu{
 
 
 
-
-
-
 /* ======== MUITO LARGO (>=1600) ======== */
 @media (min-width: 1600px){
   #pagina-dashboard .painel-dashboard{ max-width: 1320px;}
@@ -1055,8 +1045,16 @@ body.menu-aberto .mask-menu{
     transition: left .25s ease;
     z-index: 100;
     box-shadow: 0 8px 24px rgba(0,0,0,.2);
+    visibility: hidden;
+    pointer-events: none;
+    opacity: 0;
   }
-  body.menu-aberto .menu-lateral{ left: 0; }
+  body.menu-aberto .menu-lateral{ 
+    left: 0; 
+    visibility: visible;
+    pointer-events: auto;
+    opacity: 1; 
+  }
   
 
   /* Dashboard em 1 coluna */
