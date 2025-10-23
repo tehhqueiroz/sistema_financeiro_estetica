@@ -565,9 +565,9 @@
               <input id="srv-nome" type="text" placeholder="Informe o nome" />
             </div>
             <div class="campo largura-media">
-              <label for="srv-valor">Valor do serviço</label>
+              <label for="srv-valor">Valor do serviço (R$)</label>
 
-                <input id="srv-valor" type="text" placeholder="R$" aria-label="Valor do serviço" />
+                <input id="srv-valor" type="number" step="0.01" placeholder="R$" aria-label="Valor do serviço" />
 
             </div>
             <div class="campo largura-media">
@@ -647,8 +647,8 @@
 
             </div>
             <div class="campo">
-              <label for="fp-custo">Custo por transação</label>
-                <input id="fp-custo" type="text" placeholder="R$" inputmode="decimal" aria-label="Custo por transação"/>
+              <label for="fp-custo">Custo por transação (R$)</label>
+                <input id="fp-custo" type="number" step="0.01" placeholder="R$" inputmode="decimal" aria-label="Custo por transação"/>
             </div>
           </div>
 
@@ -922,10 +922,10 @@
                 <input id="rs-data" type="date" placeholder="dd/mm/aaaa" />              </div>
 
             <div class="campo">
-              <label for="rs-valor">Valor pago</label>
+              <label for="rs-valor">Valor pago (R$)</label>
 
 
-                <input id="rs-valor" type="text" placeholder="R$" />
+                <input id="rs-valor" type="number" step="0.01" placeholder="R$" />
 
             </div>
             <div class="campo">
@@ -975,8 +975,8 @@
 
             </div>
             <div class="campo">
-              <label for="rt-valor">Valor retirado</label>
-              <input id="rt-valor" type="text" value="R$150,00" />
+              <label for="rt-valor">Valor retirado (R$)</label>
+              <input id="rt-valor" type="number" step="0.01" placeholder="R$" />
             </div>
           </div>
 
