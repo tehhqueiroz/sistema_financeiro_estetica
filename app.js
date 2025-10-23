@@ -1,3 +1,9 @@
+// Sessão (apenas estado, sem guardar senha)
+const SESSAO = {
+  LOGADO: 'ec_logado',
+  PAGINA: 'ec_pagina'
+};
+
 // Navegação simples entre páginas
 const paginas = document.querySelectorAll('.pagina');
 function irPara(id){
@@ -8,6 +14,12 @@ function irPara(id){
   document.querySelectorAll('.item-menu').forEach(b=>b.classList.toggle('ativo', b.dataset.pagina===id));
     // ativa/desativa classe no body
   document.body.classList.toggle('modo-login', id === 'pagina-login');
+  // persiste última página se logado e não for a tela de login
+const logado = sessionStorage.getItem(SESSAO.LOGADO) === '1';
+if (logado && id && id !== 'pagina-login') {
+  sessionStorage.setItem(SESSAO.PAGINA, id);
+}
+
 }
 
 // Clique em QUALQUER coisa com data-pagina (inclusive as que recebem depois)
@@ -44,14 +56,21 @@ abaEntrar?.addEventListener('click', ()=>ativarAba('entrar'));
 abaCadastrar?.addEventListener('click', ()=>ativarAba('cadastrar'));
 ativarAba('entrar');
 
+
+
 // Simular login
 formEntrar?.addEventListener('submit', (e)=>{
   e.preventDefault();
+  sessionStorage.setItem(SESSAO.LOGADO, '1');
+  sessionStorage.setItem(SESSAO.PAGINA, 'pagina-dashboard');
   irPara('pagina-dashboard');
+
 });
 
 // Botão cadastrar da tela de cadastro
 formCadastrar?.querySelector('button[data-ir]')?.addEventListener('click', (e)=>{
+  sessionStorage.setItem(SESSAO.LOGADO, '1');
+  sessionStorage.setItem(SESSAO.PAGINA, 'pagina-dashboard');
   irPara('pagina-dashboard');
 });
 
@@ -87,7 +106,7 @@ document.getElementById('adicionar-desconto')?.addEventListener('click', ()=>{
 });
 
 // Estado inicial
-irPara('pagina-login');
+//irPara('pagina-login');
 
 // Mostrar/ocultar bloco de juros conforme seleção
 function atualizarBlocoJuros(){
@@ -102,6 +121,13 @@ document.addEventListener('change', (e)=>{
   if(e.target.matches('input[name="fp-juros"]')) atualizarBlocoJuros();
 });
 document.addEventListener('DOMContentLoaded', atualizarBlocoJuros);
+
+// Restaura sessão/rota ao carregar
+(function restaurarSessao(){
+  const logado = sessionStorage.getItem(SESSAO.LOGADO) === '1';
+  const ultima = sessionStorage.getItem(SESSAO.PAGINA) || 'pagina-dashboard';
+  irPara(logado ? ultima : 'pagina-login');
+})();
 
 // CSV de sessões pendentes (mock)
 document.getElementById('baixar-csv')?.addEventListener('click', ()=>{
@@ -325,6 +351,9 @@ menu.addEventListener('click', (e) => {
   sair.addEventListener('click', () => {
     fechar();
 
+    sessionStorage.removeItem(SESSAO.LOGADO);
+    sessionStorage.removeItem(SESSAO.PAGINA);
+
     // esconde todas as páginas
     document.querySelectorAll('[id^="pagina-"]').forEach(el => el.hidden = true);
 
@@ -345,5 +374,7 @@ menu.addEventListener('click', (e) => {
 
     // opcional: foca o campo de e-mail imediatamente
     if (emailInput) emailInput.focus();
+
+    irPara('pagina-login');
   });
 })();
